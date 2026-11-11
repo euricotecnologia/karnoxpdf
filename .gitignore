@@ -1,0 +1,16 @@
+*~
+plan/
+/target
+/dist
+/corpus
+/log
+.DS_Store
+/fuzz-out
+/assets/models
+# A craft-fonts checkout used as the optional CRAFT_FONTS_DIR build input (CI and releases put it here).
+/craft-fonts
+
+# Local-only screenshots and personal notes (copies used by the README live in docs/images)
+/prints
+/Copyright_KarnoxPDF.txt
+/CLAUDE.md

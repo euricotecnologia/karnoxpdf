@@ -1,0 +1,13 @@
+KarnoxPDF app icon (img/icone1.png and every file derived from it in this directory: karnoxpdf-1024.png,
+karnoxpdf.icns, karnoxpdf.ico, hicolor/), the splash artwork (img/splash1.png) and the About logo
+(img/sobre.png).
+
+Original artwork made for this project by the project owner (no third-party material). Licensed like the
+rest of KarnoxPDF, under either of
+
+  * Apache License, Version 2.0 (https://www.apache.org/licenses/LICENSE-2.0)
+  * MIT license (https://opensource.org/licenses/MIT)
+
+at your option.
+
+Regenerate the derived icon files with `cargo xtask app-icons`.

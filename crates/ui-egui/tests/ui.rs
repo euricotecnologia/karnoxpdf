@@ -1,0 +1,492 @@
+//! Headless UI tests (egui_kittest + AccessKit). They drive the real app shell without a window.
+
+use egui::accesskit::Role;
+use egui_kittest::Harness;
+use egui_kittest::kittest::Queryable;
+use karnoxpdf_ui_egui::{KarnoxPDFApp, Mode, QuickTool};
+
+/// A tiny PDF with two pages, two bookmarks and one sticky note.
+const FIXTURE: &[u8] = b"%PDF-1.7
+1 0 obj << /Type /Catalog /Pages 2 0 R /Outlines 6 0 R >> endobj
+2 0 obj << /Type /Pages /Kids [3 0 R 4 0 R] /Count 2 >> endobj
+3 0 obj << /Type /Page /Parent 2 0 R /MediaBox [0 0 300 400] /Annots [9 0 R] >> endobj
+4 0 obj << /Type /Page /Parent 2 0 R /MediaBox [0 0 300 400] >> endobj
+6 0 obj << /Type /Outlines /First 7 0 R /Last 8 0 R /Count 2 >> endobj
+7 0 obj << /Title (Alpha section) /Parent 6 0 R /Next 8 0 R /Dest [3 0 R /Fit] >> endobj
+8 0 obj << /Title (Beta section) /Parent 6 0 R /Prev 7 0 R /Dest [4 0 R /Fit] >> endobj
+9 0 obj << /Type /Annot /Subtype /Text /Rect [10 370 30 390] /T (Tester) /Contents (Check the numbers) >> endobj
+trailer << /Root 1 0 R >>
+%%EOF";
+
+fn harness(setup: impl FnOnce(&mut KarnoxPDFApp) + 'static) -> Harness<'static, KarnoxPDFApp> {
+    let mut h = Harness::builder().with_size(egui::vec2(1400.0, 900.0)).build_eframe(move |_cc| {
+        let mut app = KarnoxPDFApp::new();
+        setup(&mut app);
+        app
+    });
+    // Fonts install on frame 1 and apply on frame 2.
+    h.run_steps(4);
+    h
+}
+
+#[test]
+fn home_shows_welcome_and_tools() {
+    let h = harness(|app| app.set_option("language", "en").unwrap());
+    assert_eq!(h.query_all_by_label("All tools").count(), 1, "Home has the All tools nav button");
+    h.get_by_label("Merge PDF");
+    assert_eq!(h.query_all_by_label("Open file").count(), 0, "the Home open shortcut was removed");
+}
+
+#[test]
+fn every_catalog_tool_is_listed_after_view_more() {
+    let h = harness(|app| app.set_option("language", "en").unwrap());
+    for title in [
+        "Merge PDF",
+        "Split PDF",
+        "Compress PDF",
+        "PDF to Word",
+        "PDF to PowerPoint",
+        "PDF to Excel",
+        "Word to PDF",
+        "PowerPoint to PDF",
+        "Excel to PDF",
+        "Edit PDF",
+        "PDF to JPG",
+        "Image to PDF",
+        "Sign PDF",
+        "Watermark",
+        "Rotate PDF",
+        "HTML to PDF",
+        "Unlock PDF",
+        "Protect PDF",
+    ] {
+        assert!(h.query_all_by_label(title).count() >= 1, "card {title} missing from main screen");
+    }
+}
+
+#[test]
+fn edit_pdf_card_loads_the_file_directly_into_the_top_editor() {
+    let dir = std::env::current_dir().expect("project directory").join("target").join(format!("karnoxpdf-edit-card-{}", std::process::id()));
+    std::fs::create_dir_all(&dir).expect("create test directory");
+    let file = dir.join("editable.pdf");
+    std::fs::write(&file, FIXTURE).expect("write synthetic PDF");
+
+    let mut h = harness(|app| app.set_option("language", "en").unwrap());
+    h.state_mut().pick_override = Some(vec![file.to_string_lossy().into_owned()]);
+    h.get_by_role_and_label(Role::Button, "Edit PDF").click();
+    h.run_steps(3);
+
+    assert_eq!(h.state().views.len(), 1);
+    assert_eq!(h.state().mode, Mode::Edit);
+    assert_eq!(h.state().quick_tool, QuickTool::EditText);
+    assert!(!h.state().left_open, "the All tools sidebar stays closed in the editor");
+    assert_eq!(h.query_all_by_label("All tools").count(), 1, "only the permanent Home tab remains");
+    for action in ["Undo", "Redo", "Edit text & images", "Text", "Image", "Link", "Add content", "Modify page", "Save", "Save as…"] {
+        h.get_by_label(action);
+    }
+
+    let _ = std::fs::remove_dir_all(dir);
+}
+
+#[test]
+fn language_and_theme_menus_are_available_without_a_document() {
+    let mut h = harness(|app| app.set_option("language", "en").unwrap());
+    assert_eq!(h.query_all_by_label("Settings").count(), 0);
+    h.get_by_label("Language").click();
+    h.run_steps(2);
+    assert_eq!(h.query_all_by_label("Use system setting").count(), 0, "language has only explicit choices");
+    h.get_by_label("Português (Brasil)").click();
+    h.run_steps(2);
+    assert_eq!(h.state().language, "pt-br");
+    h.get_by_label("Juntar PDF");
+    // Home screen has the theme toggle button
+    h.state_mut().execute("view.theme.dark");
+    h.run_steps(2);
+    assert_eq!(h.state().theme_preference, karnoxpdf_ui_egui::theme::ThemePreference::Dark);
+}
+
+#[test]
+fn home_cards_follow_the_selected_language() {
+    let mut h = harness(|app| app.set_option("language", "en").unwrap());
+    for (language, title, language_label) in
+        [("pt-br", "Juntar PDF", "Idioma"), ("pt-pt", "Juntar PDF", "Idioma"), ("es", "Unir PDF", "Idioma"), ("fr", "Fusionner des PDF", "Langue")]
+    {
+        h.state_mut().set_option("language", language).unwrap();
+        h.run_steps(2);
+        h.get_by_label(title);
+        h.get_by_label(language_label);
+    }
+}
+
+#[test]
+fn a_pdf_opens_as_a_tab_below_the_file_toolbar() {
+    let mut h = harness(|app| {
+        app.set_option("language", "en").unwrap();
+        app.open_bytes("fixture.pdf", None, FIXTURE.to_vec()).expect("fixture opens");
+        app.open_bytes("second.pdf", None, FIXTURE.to_vec()).expect("second fixture opens");
+    });
+    let toolbar_bottom = h.get_by_label("Open").rect().bottom();
+    let first_tab = h.get_by_label("fixture.pdf").rect();
+    let second_tab = h.get_by_label("second.pdf").rect();
+    assert!(first_tab.top() >= toolbar_bottom, "document tabs should be below the file toolbar");
+    assert_eq!(first_tab.top(), second_tab.top());
+    h.get_by_role_and_label(Role::Button, "All tools").click();
+    h.run_steps(2);
+    assert_eq!(h.state().active, None, "the Home tab remains available while documents are open");
+    assert_eq!(h.query_all_by_label("All tools").count(), 1);
+    // Return to documents via Notification button
+    h.get_by_label("Notification").click();
+    h.run_steps(2);
+    assert_eq!(h.state().active, Some(0));
+    assert_eq!(h.state().views.len(), 2);
+}
+
+#[test]
+fn home_tab_returns_from_combine_workspace_without_losing_files() {
+    let mut h = harness(|app| {
+        app.set_option("language", "en").unwrap();
+        app.open_combine_workspace();
+    });
+    h.get_by_label("All tools").click();
+    h.run_steps(2);
+    assert!(h.state().combine_workspace_open);
+    assert!(!h.state().combine_workspace_active);
+    h.get_all_by_label("Merge PDF").next().unwrap().click();
+    h.run_steps(2);
+    assert!(h.state().combine_workspace_active);
+}
+
+#[test]
+fn opening_a_pdf_shows_comments_and_bookmarks() {
+    let mut h = harness(|app| app.open_bytes("fixture.pdf", None, FIXTURE.to_vec()).expect("fixture opens"));
+    // Documents with comments open on the Comments panel, like Acrobat.
+    h.get_by_label_contains("Check the numbers");
+    h.get_by_label("Bookmarks").click();
+    h.run_steps(3);
+    h.get_by_label("Alpha section");
+    h.get_by_label("Beta section");
+}
+
+#[test]
+fn garbage_input_is_rejected_without_panicking() {
+    let mut app = KarnoxPDFApp::new();
+    assert!(app.open_bytes("junk.pdf", None, b"this is not a pdf".to_vec()).is_err());
+    assert!(app.open_bytes("empty.pdf", None, Vec::new()).is_err());
+    let mut truncated = FIXTURE.to_vec();
+    truncated.truncate(FIXTURE.len() / 3);
+    // A truncated file either repairs or fails cleanly; it must not panic.
+    let _ = app.open_bytes("truncated.pdf", None, truncated);
+}
+
+#[test]
+fn theme_and_view_options_apply() {
+    let mut h = harness(|app| {
+        app.open_bytes("fixture.pdf", None, FIXTURE.to_vec()).expect("fixture opens");
+        app.set_option("theme", "dark").unwrap();
+        app.set_option("panel", "pages").unwrap();
+        app.set_option("page", "2").unwrap();
+    });
+    h.run_steps(3);
+    h.get_by_label("Page 2");
+    assert!(h.state_mut().set_option("panel", "nope").is_err());
+}
+
+/// Two pages of real text.
+const TEXT_FIXTURE: &[u8] = b"%PDF-1.7
+1 0 obj << /Type /Catalog /Pages 2 0 R >> endobj
+2 0 obj << /Type /Pages /Kids [3 0 R 4 0 R] /Count 2 >> endobj
+3 0 obj << /Type /Page /Parent 2 0 R /MediaBox [0 0 300 200] /Contents 5 0 R /Resources << /Font << /F1 7 0 R >> >> >> endobj
+4 0 obj << /Type /Page /Parent 2 0 R /MediaBox [0 0 300 200] /Contents 6 0 R /Resources << /Font << /F1 7 0 R >> >> >> endobj
+5 0 obj << /Length 55 >> stream
+BT /F1 14 Tf 20 150 Td (The quick brown fox) Tj ET
+endstream endobj
+6 0 obj << /Length 58 >> stream
+BT /F1 14 Tf 20 150 Td (A second brown animal) Tj ET
+endstream endobj
+7 0 obj << /Type /Font /Subtype /Type1 /BaseFont /Helvetica >> endobj
+trailer << /Root 1 0 R >>
+%%EOF";
+
+fn settle(h: &mut Harness<'static, KarnoxPDFApp>) {
+    for _ in 0..200 {
+        h.run_steps(2);
+        if !h.state().render_pending() {
+            break;
+        }
+        std::thread::sleep(std::time::Duration::from_millis(5));
+    }
+}
+
+#[test]
+fn find_counts_matches_across_pages() {
+    let mut h = harness(|app| {
+        app.open_bytes("text.pdf", None, TEXT_FIXTURE.to_vec()).expect("opens");
+        app.set_option("find", "brown").unwrap();
+    });
+    settle(&mut h);
+    h.get_by_label_contains("of 2");
+    let v = &h.state().views[0];
+    let f = v.find.as_ref().expect("find open");
+    assert_eq!(f.matches.iter().map(|(p, _)| *p).collect::<Vec<_>>(), vec![0, 1]);
+}
+
+#[test]
+fn find_reports_no_matches() {
+    let mut h = harness(|app| {
+        app.open_bytes("text.pdf", None, TEXT_FIXTURE.to_vec()).expect("opens");
+        app.set_option("find", "zebra").unwrap();
+    });
+    settle(&mut h);
+    h.get_by_label("No matches");
+}
+
+#[test]
+fn drag_selects_text_and_copy_returns_it() {
+    let mut h = harness(|app| {
+        app.open_bytes("text.pdf", None, TEXT_FIXTURE.to_vec()).expect("opens");
+        app.set_option("left", "closed").unwrap();
+    });
+    settle(&mut h);
+    // "The quick brown fox": glyph 4 = 'q', glyph 14 = 'n' of "brown".
+    let (a, b) = {
+        let v = &h.state().views[0];
+        (v.glyph_screen_pos(0, 4).expect("text layer loaded"), v.glyph_screen_pos(0, 14).expect("glyph"))
+    };
+    h.hover_at(a);
+    h.run_steps(1);
+    h.drag_at(a);
+    h.run_steps(1);
+    h.hover_at(a + (b - a) * 0.5);
+    h.run_steps(1);
+    h.hover_at(b);
+    h.run_steps(2);
+    h.drop_at(b);
+    h.run_steps(2);
+    assert_eq!(h.state().views[0].selected_text().as_deref(), Some("quick brown"));
+}
+
+#[test]
+fn persistence_round_trips_and_tolerates_garbage() {
+    let mut a = KarnoxPDFApp::new();
+    a.set_option("theme", "dark").unwrap();
+    let json = a.persist();
+    let mut b = KarnoxPDFApp::new();
+    b.restore(&json);
+    assert_eq!(b.theme, karnoxpdf_ui_egui::theme::ThemeKind::Dark);
+    b.restore("{not json");
+    b.restore("{\"recent\": 5, \"theme\": \"Purple\"}");
+    assert_eq!(b.theme, karnoxpdf_ui_egui::theme::ThemeKind::Dark);
+}
+
+#[test]
+fn zoom_keeps_the_point_under_the_cursor_still() {
+    let mut h = harness(|app| {
+        app.open_bytes("text.pdf", None, TEXT_FIXTURE.to_vec()).expect("opens");
+        app.set_option("left", "closed").unwrap();
+        app.set_option("panel", "none").unwrap();
+    });
+    settle(&mut h);
+    let before = h.state().views[0].glyph_screen_pos(0, 4).expect("glyph on screen");
+    let z = h.state().views[0].zoom;
+    h.state_mut().views[0].zoom_at(z * 2.0, before);
+    h.run_steps(4);
+    let after = h.state().views[0].glyph_screen_pos(0, 4).expect("glyph still on screen");
+    assert!((after - before).length() < 2.0, "moved from {before:?} to {after:?}");
+}
+
+#[test]
+fn selection_works_in_every_view_rotation() {
+    for deg in ["90", "180", "270"] {
+        let mut h = harness(move |app| {
+            app.open_bytes("text.pdf", None, TEXT_FIXTURE.to_vec()).expect("opens");
+            app.set_option("left", "closed").unwrap();
+            app.set_option("rotate", deg).unwrap();
+            // Keep the whole rotated page on screen.
+            app.set_option("zoom", "60").unwrap();
+        });
+        settle(&mut h);
+        let (a, b) = {
+            let v = &h.state().views[0];
+            (v.glyph_screen_pos(0, 4).expect("glyph"), v.glyph_screen_pos(0, 14).expect("glyph"))
+        };
+        h.hover_at(a);
+        h.run_steps(1);
+        h.drag_at(a);
+        h.run_steps(1);
+        h.hover_at(a + (b - a) * 0.5);
+        h.run_steps(1);
+        h.hover_at(b);
+        h.run_steps(2);
+        h.drop_at(b);
+        h.run_steps(2);
+        assert_eq!(h.state().views[0].selected_text().as_deref(), Some("quick brown"), "rotation {deg}");
+    }
+}
+
+/// A file dropped on the window, as the windowing layer hands it over.
+#[derive(Debug)]
+struct Dropped {
+    path: std::path::PathBuf,
+    bytes: Vec<u8>,
+}
+
+impl egui::DroppedFile for Dropped {
+    fn path(&self) -> &std::path::Path {
+        &self.path
+    }
+    fn bytes(&self) -> Result<Vec<u8>, String> {
+        Ok(self.bytes.clone())
+    }
+}
+
+#[test]
+fn dropping_a_pdf_on_the_window_opens_it() {
+    let mut h = Harness::builder().with_size(egui::vec2(1200.0, 800.0)).build_eframe(|_cc| KarnoxPDFApp::new());
+    h.run_steps(3);
+    assert!(h.state().views.is_empty());
+    let file: egui::DroppedFileHandle = std::sync::Arc::new(Dropped { path: "dropped.pdf".into(), bytes: FIXTURE.to_vec() });
+    h.input_mut().dropped_files.push(file);
+    h.run_steps(3);
+    assert_eq!(h.state().views.len(), 1, "the dropped PDF opens in a tab");
+    h.get_by_label_contains("dropped.pdf");
+}
+
+#[test]
+fn files_and_quit_from_the_operating_system() {
+    // #73: macOS hands Finder double-clicks, Open With and Dock drops over as Apple events.
+    use karnoxpdf_ui_egui::OsEvent;
+    let name = format!("karnoxpdf-os-open-{}.pdf", std::process::id());
+    let path = std::env::temp_dir().join(&name);
+    std::fs::write(&path, FIXTURE).unwrap();
+    let queue = std::rc::Rc::new(std::cell::RefCell::new(vec![OsEvent::Open(vec![path.to_string_lossy().into_owned()])]));
+    let q = queue.clone();
+    let mut h = harness(move |app| app.os_events = Some(Box::new(move || q.borrow_mut().drain(..).collect())));
+    std::fs::remove_file(&path).ok();
+    assert_eq!(h.state().views.len(), 1, "the file opens in a tab");
+    h.get_by_label_contains(&name);
+    // Quit closes the window like the close button, so unsaved changes are asked about.
+    queue.borrow_mut().push(OsEvent::Quit);
+    h.step();
+    let closing = h.output().viewport_output.values().any(|v| v.commands.iter().any(|c| matches!(c, egui::ViewportCommand::Close)));
+    assert!(closing);
+}
+
+#[test]
+fn default_workspace_mode_persists_and_tolerates_invalid_settings() {
+    use karnoxpdf_ui_egui::Mode;
+    for mode in [Mode::AllTools, Mode::Read, Mode::Edit, Mode::Convert, Mode::Sign] {
+        let mut app = KarnoxPDFApp::new();
+        app.default_mode = mode;
+        app.set_option("mode", "sign").unwrap();
+        let mut restored = KarnoxPDFApp::new();
+        restored.restore(&app.persist());
+        assert_eq!(restored.default_mode, mode);
+        restored.open_bytes("fixture.pdf", None, FIXTURE.to_vec()).unwrap();
+        assert_eq!(restored.mode, mode, "session override must not be persisted");
+    }
+    for json in ["{}", "{not json", r#"{"default_mode": null}"#, r#"{"default_mode": 5}"#, r#"{"default_mode": "unknown"}"#] {
+        let mut app = KarnoxPDFApp::new();
+        app.restore(json);
+        assert_eq!(app.default_mode, Mode::AllTools);
+        app.open_bytes("fixture.pdf", None, FIXTURE.to_vec()).unwrap();
+        assert_eq!(app.mode, Mode::AllTools);
+    }
+}
+
+#[test]
+fn newly_opened_pdfs_use_the_default_workspace() {
+    use karnoxpdf_ui_egui::{LeftPanel, Mode};
+    let mut app = KarnoxPDFApp::new();
+    app.restore(r#"{"default_mode": "edit"}"#);
+    app.open_bytes("first.pdf", None, FIXTURE.to_vec()).unwrap();
+    assert_eq!(app.mode, Mode::Edit);
+    assert_eq!(app.left, LeftPanel::Tool("edit"));
+    app.default_mode = Mode::Read;
+    assert_eq!(app.mode, Mode::Edit, "changing the preference affects future opens");
+    app.open_bytes("second.pdf", None, FIXTURE.to_vec()).unwrap();
+    assert_eq!(app.mode, Mode::Read);
+    // PDF Initial View is independent of the workspace preference.
+    let pdf =
+        String::from_utf8(FIXTURE.to_vec()).unwrap().replace("/Outlines 6 0 R", "/Outlines 6 0 R /PageLayout /TwoColumnLeft /PageMode /UseOutlines");
+    app.open_bytes("initial-view.pdf", None, pdf.into_bytes()).unwrap();
+    assert_eq!(app.mode, Mode::Read);
+    assert_eq!(app.views.last().unwrap().layout, karnoxpdf_ui_egui::canvas::PageLayout::TwoUp);
+    assert_eq!(app.right, Some(karnoxpdf_ui_egui::RightPanel::Bookmarks));
+}
+
+#[test]
+fn explicit_mode_overrides_default_before_and_after_open() {
+    use karnoxpdf_ui_egui::Mode;
+    for before in [false, true] {
+        for (value, mode) in [("all", Mode::AllTools), ("read", Mode::Read), ("edit", Mode::Edit), ("convert", Mode::Convert), ("sign", Mode::Sign)] {
+            let mut app = KarnoxPDFApp::new();
+            app.default_mode = Mode::Read;
+            if before {
+                app.set_option("mode", value).unwrap();
+            }
+            app.open_bytes("first.pdf", None, FIXTURE.to_vec()).unwrap();
+            if !before {
+                // Desktop startup applies CLI options after the initial files open.
+                app.set_option("mode", value).unwrap();
+            }
+            assert_eq!(app.mode, mode);
+            app.set_option("default-mode", "edit").unwrap();
+            app.open_bytes("second.pdf", None, FIXTURE.to_vec()).unwrap();
+            assert_eq!(app.mode, mode);
+            assert_eq!(app.default_mode, Mode::Edit);
+        }
+    }
+}
+
+#[test]
+fn preferences_selects_default_workspace_for_next_open() {
+    use egui::accesskit::Role;
+    use karnoxpdf_ui_egui::Mode;
+    let mut h = harness(|app| app.set_option("dialog", "preferences").unwrap());
+    h.get_by_label("Documents and view").click();
+    h.run_steps(2);
+    h.get_by_label("Default workspace mode");
+    h.get_by_role_and_label(Role::ComboBox, "Default workspace mode").click();
+    h.run_steps(2);
+    h.get_all_by_label("Read").last().expect("workspace option").click();
+    h.run_steps(2);
+    assert_eq!(h.state().default_mode, Mode::Read);
+    assert_eq!(h.state().mode, Mode::AllTools);
+    h.get_by_label("OK").click();
+    h.run_steps(2);
+    h.state_mut().open_bytes("fixture.pdf", None, FIXTURE.to_vec()).unwrap();
+    assert_eq!(h.state().mode, Mode::Read);
+}
+
+#[test]
+fn explicit_mode_preserves_independent_tool_and_panel_options() {
+    use karnoxpdf_ui_egui::LeftPanel;
+    let mut app = KarnoxPDFApp::new();
+    app.set_option("tool", "export").unwrap();
+    app.set_option("left", "closed").unwrap();
+    app.set_option("mode", "edit").unwrap();
+    assert_eq!(app.left, LeftPanel::Tool("export"));
+    assert!(!app.left_open);
+    app.open_bytes("fixture.pdf", None, FIXTURE.to_vec()).unwrap();
+    assert_eq!(app.left, LeftPanel::Tool("export"));
+    assert!(!app.left_open);
+}
+
+#[test]
+fn opening_a_pdf_keeps_a_closed_left_panel_and_the_chosen_tool() {
+    use karnoxpdf_ui_egui::{LeftPanel, Mode};
+    // `--left closed` without `--mode`, default workspace Edit: the panel stays closed.
+    let mut app = KarnoxPDFApp::new();
+    app.default_mode = Mode::Edit;
+    app.set_option("left", "closed").unwrap();
+    app.open_bytes("fixture.pdf", None, FIXTURE.to_vec()).unwrap();
+    assert_eq!(app.mode, Mode::Edit);
+    assert!(!app.left_open);
+    // Default All Tools: opening another PDF leaves the tool panel the user picked.
+    let mut app = KarnoxPDFApp::new();
+    app.set_option("tool", "export").unwrap();
+    app.open_bytes("first.pdf", None, FIXTURE.to_vec()).unwrap();
+    app.open_bytes("second.pdf", None, FIXTURE.to_vec()).unwrap();
+    assert_eq!(app.mode, Mode::AllTools);
+    assert_eq!(app.left, LeftPanel::Tool("export"));
+}

@@ -1,0 +1,446 @@
+# Czech (cs) catalog. Format: see the header of ja.tsv
+# (context <TAB> source <TAB> translation; @id, @plural and other contexts; escapes \n \t \\).
+# Plural forms (see `plural_cs` in i18n/mod.rs): one (1) | few (2–4) | other (0, 5+).
+#
+# Clean-room: written from the meaning of the English labels, following common Czech desktop
+# conventions (menus are nouns, commands are infinitives); not taken from Adobe Acrobat's Czech
+# localisation or any other product's translation. Terminology: annotations are "komentáře",
+# pages are "stránky", form fields are "formulářová pole". Product and format names (KarnoxPDF,
+# PDF, Word, HTML…) stay in Latin letters; the trailing "…" of dialog commands is kept.
+
+	Menu	Nabídka
+	File	Soubor
+	Edit	Úpravy
+	Pages	Stránky
+	View	Zobrazení
+	Help	Nápověda
+	Zoom	Zvětšení
+	Actual size	Skutečná velikost
+	Zoom to page level	Celá stránka
+	Fit to width	Přizpůsobit šířce
+	Display theme	Motiv vzhledu
+	Side panels	Postranní panely
+	Preferences	Předvolby
+	Preferences…	Předvolby…
+	Interface language	Jazyk rozhraní
+	Identity	Identita
+	Name on new comments	Jméno autora nových komentářů
+	Enable Acrobat JavaScript	Povolit Acrobat JavaScript
+	OK	OK
+	Open…	Otevřít…
+	New blank PDF	Nový prázdný dokument PDF
+	Create PDF from file…	Vytvořit PDF ze souboru…
+	Create PDF from images…	Vytvořit PDF z obrázků…
+	Create PDF from clipboard	Vytvořit PDF ze schránky
+	Combine files…	Sloučit soubory…
+	Save	Uložit
+	Save as…	Uložit jako…
+	Close file	Zavřít soubor
+	Close all	Zavřít vše
+	Revert	Vrátit k uložené verzi
+	Print…	Tisk…
+	Print	Tisk
+	Document properties…	Vlastnosti dokumentu…
+	Export to image…	Exportovat jako obrázek…
+	Reduce file size…	Zmenšit velikost souboru…
+	Optimize PDF…	Optimalizovat PDF…
+	Export to text…	Exportovat jako text…
+	Export to Word…	Exportovat do formátu Word…
+	Export to HTML…	Exportovat do formátu HTML…
+	Export to RTF…	Exportovat do formátu RTF…
+	Export all images…	Exportovat všechny obrázky…
+	Protect using password…	Chránit heslem…
+	Remove security	Odebrat zabezpečení
+	Security properties…	Vlastnosti zabezpečení…
+	Undo	Zpět
+	Redo	Znovu
+	Find…	Najít…
+	Advanced search…	Rozšířené hledání…
+	Take a snapshot	Pořídit snímek
+	Clear form	Vymazat formulář
+	Copy pages	Kopírovat stránky
+	Cut pages	Vyjmout stránky
+	Paste pages	Vložit stránky
+	Find tools and commands…	Najít nástroje a příkazy…
+	Fit visible	Přizpůsobit viditelnému obsahu
+	Marquee zoom	Zvětšit vybranou oblast
+	Full screen mode	Režim celé obrazovky
+	Read mode	Režim čtení
+	Switch light / dark theme	Přepnout světlý / tmavý motiv
+	Comments panel	Panel komentářů
+	Form fields panel	Panel formulářových polí
+	Signatures panel	Panel podpisů
+	Organize pages	Uspořádat stránky
+	New bookmark	Nová záložka
+	Rotate pages clockwise	Otočit stránky po směru hodinových ručiček
+	Rotate pages counterclockwise	Otočit stránky proti směru hodinových ručiček
+	Delete pages	Odstranit stránky
+	Insert blank page	Vložit prázdnou stránku
+	Rotate pages…	Otočit stránky…
+	Duplicate pages	Duplikovat stránky
+	Crop pages	Oříznout stránky
+	Set page boxes…	Nastavit rámečky stránek…
+	Insert pages from file…	Vložit stránky ze souboru…
+	Replace pages…	Nahradit stránky…
+	Extract pages…	Extrahovat stránky…
+	Split document…	Rozdělit dokument…
+	Number pages…	Očíslovat stránky…
+	Keyboard shortcuts	Klávesové zkratky
+	KarnoxPDF web page	Webová stránka KarnoxPDF
+	KarnoxPDF on GitHub	KarnoxPDF na GitHubu
+	Check for updates…	Zkontrolovat aktualizace…
+	About KarnoxPDF	O aplikaci KarnoxPDF
+	About	O aplikaci
+	Auto	Automaticky
+	Continuous scrolling	Plynulé posouvání
+	Single page	Jednostránkové zobrazení
+	Two-page view	Dvoustránkové zobrazení
+	Show cover page in two-page view	Zobrazit titulní stránku ve dvoustránkovém zobrazení
+	Page display	Zobrazení stránek
+	Page display: {layout}	Zobrazení stránek: {layout}
+	Default page display	Výchozí zobrazení stránek
+	Default zoom	Výchozí zvětšení
+	Custom	Vlastní
+	Fit to width scrolling	Plynulé posouvání s přizpůsobením šířce
+	Fit one full page	Celá jedna stránka
+	Used when a PDF doesn't ask for a layout or zoom. Continuous scrolling never snaps between pages.	Používá se, když PDF nepožaduje rozložení ani zvětšení. Plynulé posouvání mezi stránkami neskáče.
+	Original source on GitHub	Původní zdrojový kód na GitHubu
+	Source and credits	Zdroj a autoři
+	KarnoxPDF is based on the open-source KarnoxPDF project.	KarnoxPDF vychází z otevřeného projektu KarnoxPDF.
+@plural	{n} page|{n} pages	{n} stránka|{n} stránky|{n} stránek
+	Merge PDF	Sloučit PDF
+	Combine PDF files in any order. Fast and easy.	Spojte soubory PDF v libovolném pořadí. Rychle a snadno.
+	Split PDF	Rozdělit PDF
+	Select a page range, extract one page, or save each page as a separate PDF.	Vyberte rozsah stránek, vyjměte jednu stránku nebo uložte každou stránku jako samostatné PDF.
+	Compress PDF	Komprimovat PDF
+	Reduce PDF file size while keeping the best possible quality.	Zmenšete soubor PDF při zachování co nejlepší kvality.
+	PDF to Word	PDF do Wordu
+	Convert PDF files to editable Word DOCX documents.	Převeďte PDF na upravitelné dokumenty Word DOCX.
+	PDF to PowerPoint	PDF do PowerPointu
+	Convert PDF files to editable PowerPoint PPTX presentations.	Převeďte PDF na upravitelné prezentace PowerPoint PPTX.
+	PDF to Excel	PDF do Excelu
+	Extract data from PDFs into Excel spreadsheets in seconds.	Během několika sekund získejte data z PDF do tabulek Excelu.
+	Word to PDF	Word do PDF
+	Convert Word DOC or DOCX documents to PDF.	Převeďte dokumenty Word DOC nebo DOCX do PDF.
+	PowerPoint to PDF	PowerPoint do PDF
+	Convert PowerPoint PPT or PPTX presentations to PDF.	Převeďte prezentace PowerPoint PPT nebo PPTX do PDF.
+	Excel to PDF	Excel do PDF
+	Convert Excel spreadsheets to PDF. Choose portrait or landscape orientation.	Převeďte tabulky Excelu do PDF. Zvolte orientaci na výšku nebo na šířku.
+	Edit PDF	Upravit PDF
+	Add text, images, shapes, and freehand annotations to a PDF. Adjust their size, font, and color.	Přidejte do PDF text, obrázky, tvary a ruční poznámky. Upravte velikost, písmo a barvu.
+	PDF to JPG	PDF do JPG
+	Extract images from a PDF or convert each page to a JPG file.	Extrahujte obrázky z PDF nebo převeďte každou stránku na soubor JPG.
+	JPG to PDF	JPG do PDF
+	Convert JPG images to PDF. Adjust orientation and margins.	Převeďte obrázky JPG do PDF. Upravte orientaci a okraje.
+	Image to PDF	Obrázek do PDF
+	Convert PNG, JPG, TIFF, GIF, BMP and more to PDF. Add several images and set their order.	Převeďte PNG, JPG, TIFF, GIF, BMP a další formáty do PDF. Přidejte více obrázků a nastavte jejich pořadí.
+	Sign PDF	Podepsat PDF
+	Sign a PDF or request electronic signatures from others.	Podepište PDF nebo požádejte další osoby o elektronický podpis.
+	Watermark	Vodoznak
+	Place an image or text watermark on a PDF. Adjust position, opacity, and typography.	Vložte do PDF obrázkový nebo textový vodoznak. Upravte polohu, průhlednost a typografii.
+	Rotate PDF	Otočit PDF
+	Rotate one PDF or several PDF files at once.	Otočte jeden nebo několik souborů PDF najednou.
+	HTML to PDF	HTML do PDF
+	Convert HTML web pages to PDF by pasting a URL.	Vložením adresy URL převeďte webové stránky HTML do PDF.
+	Unlock PDF	Odemknout PDF
+	Remove a PDF's security password so you can use the file.	Odstraňte bezpečnostní heslo PDF, abyste mohli soubor používat.
+	Protect PDF	Chránit PDF
+	Protect a PDF with a password to prevent unauthorized access.	Chraňte PDF heslem před neoprávněným přístupem.
+	Settings	Nastavení
+	Language	Jazyk
+	System themes	Systémová témata
+	Unsaved changes	Neuložené změny
+	Choose a PDF and how its pages should be divided.	Vyberte PDF a způsob rozdělení jeho stránek.
+	Source PDF	Zdrojové PDF
+	Change file	Změnit soubor
+	Select a PDF to split	Vyberte PDF k rozdělení
+	Split method	Způsob rozdělení
+	Before page numbers	Před zadanými stránkami
+	Start a new file at each page listed.	Na každé uvedené stránce začne nový soubor.
+	Choose settings that create at least two files.	Zvolte nastavení, které vytvoří alespoň dva soubory.
+	The source PDF will not be changed.	Zdrojové PDF se nezmění.
+	Split and save	Rozdělit a uložit
+	Low compression	Nízká komprese
+	Larger file, higher image quality · 200 ppi	Větší soubor, vyšší kvalita obrázků · 200 ppi
+	Balanced compression	Vyvážená komprese
+	Good balance of size and quality · 150 ppi	Vyvážený poměr velikosti a kvality · 150 ppi
+	High compression	Vysoká komprese
+	Smaller file, lower image quality · 96 ppi	Menší soubor, nižší kvalita obrázků · 96 ppi
+	Reduce file size and choose how much image quality to keep.	Zmenšete soubor a zvolte kvalitu obrázků.
+	Select a PDF to compress	Vyberte PDF ke kompresi
+	Compression level	Úroveň komprese
+	Choose a level, then compare the result before saving.	Zvolte úroveň a před uložením porovnejte výsledek.
+	The original PDF will not be changed.	Původní PDF se nezmění.
+	Result	Výsledek
+	Original: {size}	Původní: {size}
+	Compressed: {size}	Po kompresi: {size}
+	{percent}% smaller	O {percent} % menší
+	Save compressed PDF	Uložit komprimované PDF
+	This PDF did not get smaller. Try another level.	PDF se nezmenšilo. Zkuste jinou úroveň.
+	The PDF has no pages to compress.	PDF nemá žádné stránky ke kompresi.
+	compressed	komprimovaný
+	A file with that name already exists. Choose another name.	Soubor s tímto názvem již existuje. Zvolte jiný název.
+	Compressed PDF saved to {path}	Komprimované PDF uloženo do {path}
+	Convert a PDF into an editable Word DOCX document.	Převeďte PDF na upravitelný dokument Word DOCX.
+	Select a PDF to convert	Vyberte PDF k převodu
+	About the conversion	O převodu
+	Text, headings, tables and images are transferred to DOCX. The layout may differ from the PDF.	Text, nadpisy, tabulky a obrázky se převedou do DOCX. Rozvržení se může od PDF lišit.
+	Scanned pages need OCR before their text can be edited.	Naskenované stránky potřebují OCR, aby šel jejich text upravovat.
+	Convert to Word	Převést do Wordu
+	Word document ready	Dokument Word je připraven
+	DOCX size: {size}	Velikost DOCX: {size}
+	Save Word document	Uložit dokument Word
+	The PDF has no pages to convert.	PDF nemá žádné stránky k převodu.
+	Couldn't convert to Word: {e}	Nepodařilo se převést do Wordu: {e}
+	Couldn't convert to Word: the PDF could not be opened.	Nepodařilo se převést do Wordu: PDF nelze otevřít.
+	Couldn't convert to Word: the DOCX file was invalid.	Nepodařilo se převést do Wordu: soubor DOCX je neplatný.
+	Choose a .docx filename.	Zvolte název souboru .docx.
+	Word document saved to {path}	Dokument Word uložen do {path}
+	Export to PowerPoint…	Exportovat do PowerPointu…
+	Export to Excel…	Exportovat do Excelu…
+	Convert paragraph text from Word DOCX documents to PDF.	Převeďte text odstavců dokumentů Word DOCX do PDF.
+	Convert the text in a Word DOCX document to PDF.	Převeďte text dokumentu Word DOCX do PDF.
+	Source DOCX	Zdrojový DOCX
+	Select a DOCX to convert	Vyberte DOCX k převodu
+	Paragraph text is transferred. Word formatting, tables and images are not retained. Save older .doc files as DOCX first.	Přenese se text odstavců. Formátování, tabulky a obrázky Wordu se nezachovají. Starší soubory .doc nejprve uložte jako DOCX.
+	The source DOCX will not be changed.	Zdrojový DOCX se nezmění.
+	Convert to PDF	Převést do PDF
+	PDF ready	PDF je připraveno
+	Save PDF	Uložit PDF
+	Choose a .docx file. Save older .doc files as DOCX first.	Vyberte soubor .docx. Starší soubory .doc nejprve uložte jako DOCX.
+	Couldn't open Word document: invalid DOCX package.	Dokument Word nelze otevřít: neplatný soubor DOCX.
+	Couldn't convert Word document: invalid PDF output.	Dokument Word nelze převést: neplatný výstup PDF.
+	Couldn't convert Word document: {e}	Dokument Word nelze převést: {e}
+	Converted file saved to {path}	Převedený soubor uložen do {path}
+	Word to PDF…	Word do PDF…
+
+	Word DOCX	Dokument Word (.docx)
+	Convert Word DOCX documents to PDF locally, with text and tables.	Převeďte dokumenty Word DOCX do PDF místně, včetně textu a tabulek.
+	Convert a Word DOCX document to PDF in KarnoxPDF.	Převeďte dokument Word DOCX do PDF v KarnoxPDF.
+	KarnoxPDF converts this document locally. Paragraphs, basic formatting, tables and simple shapes are supported. Complex drawings and images are not supported yet. Save older .doc files as DOCX first.	KarnoxPDF převádí tento dokument místně. Podporuje odstavce, základní formátování, tabulky a jednoduché tvary. Složité kresby a obrázky zatím nejsou podporovány. Starší soubory .doc nejprve uložte jako DOCX.
+	This DOCX contains a drawing or image that KarnoxPDF cannot convert yet.	Tento DOCX obsahuje kresbu nebo obrázek, který KarnoxPDF zatím nedokáže převést.
+	Convert PowerPoint PPTX presentations to PDF locally, with text, shapes, pictures and tables.	Převeďte prezentace PowerPoint PPTX do PDF místně, včetně textu, tvarů, obrázků a tabulek.
+	Convert a PowerPoint PPTX presentation to PDF in KarnoxPDF.	Převeďte prezentaci PowerPoint PPTX do PDF v KarnoxPDF.
+	Source PPTX	Zdrojový PPTX
+	Select a PPTX to convert	Vyberte PPTX k převodu
+	KarnoxPDF converts this presentation locally, one page per slide. Text, shapes, lines, pictures and tables are drawn; fonts are replaced by Helvetica, so line breaks can differ. Charts, SmartArt and embedded objects are not drawn yet, and text in scripts other than Latin cannot be converted yet. Save older .ppt files as PPTX first.	KarnoxPDF tuto prezentaci převede místně, jeden snímek odpovídá jedné stránce. Text, tvary, čáry, obrázky a tabulky se vykreslí; písma se nahradí písmem Helvetica, takže se může lišit zalomení řádků. Grafy, SmartArt a vložené objekty se zatím nevykreslují a text v jiných písmech než latince zatím nelze převést. Starší soubory .ppt nejprve uložte jako PPTX.
+	The source PPTX will not be changed.	Zdrojový PPTX se nezmění.
+	Choose a .pptx file. Save older .ppt files as PPTX first.	Vyberte soubor .pptx. Starší soubory .ppt nejprve uložte jako PPTX.
+	Couldn't open PowerPoint presentation: invalid PPTX package.	Prezentaci PowerPoint nelze otevřít: neplatný soubor PPTX.
+	Couldn't convert PowerPoint presentation: {e}	Prezentaci PowerPoint nelze převést: {e}
+	Couldn't convert PowerPoint presentation: the conversion stopped unexpectedly.	Prezentaci PowerPoint nelze převést: převod se neočekávaně zastavil.
+	Couldn't convert Word document: the conversion stopped unexpectedly.	Dokument Word nelze převést: převod se neočekávaně zastavil.
+	Some content could not be converted:	Část obsahu se nepodařilo převést:
+	Hidden slides left out: {slides}	Vynechané skryté snímky: {slides}
+	Charts not drawn on slides {slides}	Grafy nevykresleny na snímcích {slides}
+	SmartArt not drawn on slides {slides}	SmartArt nevykreslen na snímcích {slides}
+	Embedded objects not drawn on slides {slides}	Vložené objekty nevykresleny na snímcích {slides}
+	Pictures in unsupported formats not drawn on slides {slides}	Obrázky v nepodporovaných formátech nevykresleny na snímcích {slides}
+	Some shapes drawn as rectangles on slides {slides}	Některé tvary vykresleny jako obdélníky na snímcích {slides}
+	Vertical text drawn horizontally on slides {slides}	Svislý text vykreslen vodorovně na snímcích {slides}
+	Table styles missing from the file; colors not applied on slides {slides}	Styly tabulek chybí v souboru; barvy nepoužity na snímcích {slides}
+	Content that isn't supported yet on slides {slides}	Zatím nepodporovaný obsah na snímcích {slides}
+	PowerPoint to PDF…	PowerPoint do PDF…
+	PowerPoint PPTX	Prezentace PowerPoint (.pptx)
+	Convert Excel XLSX workbooks to PDF locally. Choose portrait or landscape orientation.	Převeďte sešity Excel XLSX do PDF místně. Vyberte orientaci na výšku nebo na šířku.
+	Convert an Excel XLSX workbook to PDF in KarnoxPDF.	Převeďte sešit Excel XLSX do PDF v KarnoxPDF.
+	Source XLSX	Zdrojový XLSX
+	Select an XLSX to convert	Vyberte XLSX k převodu
+	KarnoxPDF prints every visible sheet locally, with the paper size, margins, scale, page breaks and print titles the workbook sets. Values keep their number formats, with fills, borders and alignment. Charts, pictures and conditional formatting are not drawn yet, fonts are replaced by Helvetica, and text in scripts other than Latin cannot be converted yet. Save older .xls files as XLSX first.	KarnoxPDF vytiskne místně všechny viditelné listy s velikostí papíru, okraji, měřítkem, zalomeními stránek a tiskovými názvy nastavenými v sešitu. Hodnoty si zachovají formáty čísel, výplně, ohraničení a zarovnání. Grafy, obrázky a podmíněné formátování se zatím nevykreslují, písma se nahradí písmem Helvetica a text v jiných písmech než latince zatím nelze převést. Starší soubory .xls nejprve uložte jako XLSX.
+	The source XLSX will not be changed.	Zdrojový XLSX se nezmění.
+	Choose a .xlsx file. Save older .xls files as XLSX first.	Vyberte soubor .xlsx. Starší soubory .xls nejprve uložte jako XLSX.
+	Couldn't open Excel workbook: invalid XLSX package.	Sešit Excel nelze otevřít: neplatný soubor XLSX.
+	Couldn't convert Excel workbook: {e}	Sešit Excel nelze převést: {e}
+	Couldn't convert Excel workbook: the conversion stopped unexpectedly.	Sešit Excel nelze převést: převod se neočekávaně zastavil.
+	Hidden sheets left out: {sheets}	Vynechané skryté listy: {sheets}
+	Chart sheets not drawn: {sheets}	Listy grafů nevykresleny: {sheets}
+	Charts, pictures and shapes not drawn on sheets {sheets}	Grafy, obrázky a tvary nevykresleny na listech {sheets}
+	Conditional formatting not applied on sheets {sheets}	Podmíněné formátování nepoužito na listech {sheets}
+	Table styles not applied on sheets {sheets}	Styly tabulek nepoužity na listech {sheets}
+	Content that isn't supported yet on sheets {sheets}	Zatím nepodporovaný obsah na listech {sheets}
+	Page orientation	Orientace stránky
+	As set in the workbook	Podle sešitu
+	Portrait	Na výšku
+	Landscape	Na šířku
+	Excel to PDF…	Excel do PDF…
+	Excel XLSX	Sešit Excel (.xlsx)
+	Convert PDF pages to high-quality JPG images.	Převeďte stránky PDF na vysoce kvalitní obrázky JPG.
+	Each PDF page becomes a JPG image. Choose the resolution, quality, and pages to convert.	Každá stránka PDF se převede na obrázek JPG. Zvolte rozlišení, kvalitu a stránky k převodu.
+	Convert to JPG	Převést do JPG
+	JPG images ready	Obrázky JPG jsou připraveny
+	{n} JPG images · {size}	{n} obrázků JPG · {size}
+	1 JPG image · {size}	1 obrázek JPG · {size}
+	Save JPG images	Uložit obrázky JPG
+	Saved {n} JPG images to {path}	Uloženo {n} obrázků JPG do {path}
+	Saved {n} JPG images	Uloženo {n} obrázků JPG
+	Strong	Silné
+	Medium	Střední
+	Weak	Slabé
+	Repair PDF	Opravit PDF
+	Repair PDF…	Opravit PDF…
+	Recover damaged or corrupted PDF files.	Obnovte poškozené nebo nečitelné soubory PDF.
+	Objects	Objekty
+	Output size	Výstupní velikost
+	Repair details	Podrobnosti o opravě
+	Repair another file	Opravit další soubor
+	Save Repaired PDF	Uložit opravené PDF
+	PDF successfully repaired!	PDF bylo úspěšně opraveno!
+	PDF structure verified	Struktura PDF byla ověřena
+	The document is valid and was cleanly re-indexed.	Dokument je platný a byl čistě přeindexován.
+	verified cross-reference table and page structure (no errors found)	Tabulka křížových odkazů a struktura stránek ověřena (žádné chyby nenalezeny)
+	restored document catalog reference in trailer	Odkaz na katalog dokumentu v traileru byl obnoven
+	reconstructed missing Pages tree root in catalog	Chybějící kořen stromu stránek byl rekonstruován v katalogu
+	restored {n} orphaned pages into the document page tree	{n} osiřelých stránek obnoveno do stromu stránek dokumentu
+	corrected page count in tree ({n} pages)	Počet stránek opraven ve stromu ({n} stránek)
+	removed broken linearization dictionary	Poškozený linearizační slovník byl odstraněn
+	the %PDF- header is missing; reading the file as PDF 1.4	Záhlaví %PDF- chybí; soubor je čten jako PDF 1.4
+	cross-reference data unreadable; rebuilding from object headers	Data křížových odkazů jsou nečitelná; probíhá obnova ze záhlaví objektů
+	cross-reference data unreadable ({e}); rebuilding from object headers	Data křížových odkazů jsou nečitelná ({e}); probíhá obnova ze záhlaví objektů
+	cross-reference data does not lead to a valid catalog; rebuilding from object headers	Data křížových odkazů nevedou k platnému katalogu; probíhá obnova ze záhlaví objektů
+	the trailer names an /Encrypt dictionary that does not exist; reading the file as unencrypted	Trailer uvádí neexistující slovník /Encrypt; soubor je čten jako nezašifrovaný
+	rebuilt cross-reference index from {n} object headers	Index křížových odkazů obnoven z {n} záhlaví objektů
+	synthesized missing catalog and pages root for {n} recovered pages	Syntetizován chybějící katalog a kořen stránek pro {n} obnovených stránek
+	Page Numbers	Čísla stránek
+	Add page numbers to PDF documents. Choose position, formatting, and typography.	Přidejte čísla stránek do dokumentů PDF. Zvolte pozici, formátování a typografii.
+	Add page numbers…	Přidat čísla stránek…
+	Select a PDF to add page numbers	Vyberte PDF pro přidání čísel stránek
+	Insert customized page numbering into headers or footers with full control over style and position.	Vložte přizpůsobené číslování stránek do záhlaví nebo zápatí s plnou kontrolou nad stylem a pozicí.
+	Position	Pozice
+	Top Left	Vlevo nahoře
+	Top Center	Nahoře uprostřed
+	Top Right	Vpravo nahoře
+	Bottom Left	Vlevo dole
+	Bottom Center	Dole uprostřed
+	Bottom Right	Vpravo dole
+	Format	Formát
+	Number only (1, 2, 3...)	Pouze číslo (1, 2, 3…)
+	Page {n}	Strana {n}
+	Page {n} of {total}	Strana {n} z {total}
+	Page <<1>>	Strana <<1>>
+	Page <<1>> of <<n>>	Strana <<1>> z <<n>>
+	Custom format:	Vlastní formát:
+	Use <<1>> for page number, <<n>> for total count	Použijte <<1>> pro číslo stránky a <<n>> pro celkový počet
+	Page range	Rozsah stránek
+	Page range:	Rozsah stránek:
+	Skip first page (cover)	Přeskočit první stránku (obálku)
+	Style & Typography	Styl a typografie
+	Font size:	Velikost písma:
+	Margin (distance from edge):	Okraj (vzdálenost od hrany):
+	Start numbering at:	Začít číslování od:
+	PAGE PREVIEW	NÁHLED STRÁNKY
+	Select another file	Vybrat jiný soubor
+	Save PDF with Page Numbers	Uložit PDF s čísly stránek
+	Page numbers added successfully!	Čísla stránek byla úspěšně přidána!
+	6 positions	6 pozic
+	Custom formatting	Vlastní formátování
+	Page range selection	Výběr rozsahu stránek
+	Type a format template first.	Nejprve zadejte šablonu formátu.
+	Document has no pages.	Dokument nemá žádné stránky.
+	Open in KarnoxPDF	Otevřít v KarnoxPDF
+	No document loaded.	Není načten žádný dokument.
+
+	Translating… {done} of {total} pages	Překlad… {done} z {total} stran
+	{failed} of {parts} parts could not be translated ({reason}). The original text was kept for them.	{failed} z {parts} částí se nepodařilo přeložit ({reason}). Původní text byl zachován.
+	Delete Pages	Odstranit stránky
+	Remove unwanted pages from your PDF document and save a new file.	Odstraňte z dokumentu PDF nežádoucí stránky a uložte nový soubor.
+	All pages translated successfully!	Všechny stránky byly úspěšně přeloženy!
+	Auto-detect	Automatická detekce
+	Bilingual side-by-side	Dvojjazyčně vedle sebe
+	Choose a document to extract text and translate into multiple languages.	Vyberte dokument, ze kterého se extrahuje text a přeloží do více jazyků.
+	Copy translation	Kopírovat překlad
+	Multilingual translation	Vícejazyčný překlad
+	No document to process.	Žádný dokument ke zpracování.
+	No text detected on this page.	Na této stránce nebyl nalezen žádný text.
+	Original Text	Původní text
+	Output format:	Výstupní formát:
+	Reset current page	Obnovit aktuální stránku
+	Review & edit translated text	Zkontrolovat a upravit přeložený text
+	Save Translated PDF	Uložit přeložené PDF
+	Select PDF File	Vybrat soubor PDF
+	Select a PDF to translate	Vyberte PDF k překladu
+	Side-by-side bilingual mode	Dvojjazyčný režim vedle sebe
+	Translate PDF	Přeložit PDF
+	Translate PDF document text into multiple languages and generate a new PDF.	Přeložte text dokumentu PDF do více jazyků a vytvořte nové PDF.
+	Translate all pages	Přeložit všechny stránky
+	Translate current page	Přeložit aktuální stránku
+	Translated PDF saved successfully!	Přeložené PDF bylo úspěšně uloženo!
+	Translated Text (Editable)	Přeložený text (upravitelný)
+	Translated only	Pouze překlad
+	Translation copied to clipboard.	Překlad byl zkopírován do schránky.
+	Use currently open document	Použít aktuálně otevřený dokument
+	translated successfully!	úspěšně přeloženo!
+	1 page	1 strana
+	{n} pages	{n} stran
+	From:	Z:
+	To:	Do:
+	Next page	Další stránka
+	Previous page	Předchozí stránka
+	Loading the page…	Načítání stránky…
+	Decrease	Snížit
+	Increase	Zvýšit
+	More tools	Další nástroje
+	Next	Další
+	Previous	Předchozí
+	Open a PDF	Otevřít PDF
+	Adds invisible text over each word; the page image is not changed	Přidá neviditelný text nad každé slovo; obraz stránky se nezmění
+	Back to all tools	Zpět na všechny nástroje
+	Back to the document	Zpět na dokument
+	Bookmark options	Možnosti záložek
+	Close panel	Zavřít panel
+	Colour	Barva
+	Current page — type a page number or label (such as iv) and press Enter	Aktuální stránka — zadejte číslo nebo popisek stránky (např. iv) a stiskněte Enter
+	Discard this text	Zahodit tento text
+	Dismiss	Zavřít
+	Done adding text	Dokončit přidávání textu
+	Extract pages to a new document	Extrahovat stránky do nového dokumentu
+	Filter comments	Filtrovat komentáře
+	Find options	Možnosti hledání
+	From a PDF page or an image	Ze stránky PDF nebo z obrázku
+	Go to the page	Přejít na stránku
+	Go to this result	Přejít na tento výsledek
+	Hand	Ruka
+	Insert a blank page after the selection	Vložit prázdnou stránku za výběr
+	Insert pages from a file…	Vložit stránky ze souboru…
+	Line thickness	Tloušťka čáry
+	Locked	Zamčeno
+	Marked	Označeno
+	More	Více
+	More options	Další možnosti
+	Move earlier	Posunout dříve
+	Move later	Posunout později
+	Next figure	Další obrázek
+	Next month	Další měsíc
+	Next sheet	Další list
+	Opacity	Neprůhlednost
+	Open in a new tab	Otevřít na nové kartě
+	Open the file as it was saved then	Otevřít soubor v podobě, v jaké byl tehdy uložen
+	Previous figure	Předchozí obrázek
+	Previous month	Předchozí měsíc
+	Previous sheet	Předchozí list
+	Rotate view clockwise	Otočit zobrazení po směru hodinových ručiček
+	Save attachment…	Uložit přílohu…
+	Search comments	Hledat v komentářích
+	Select	Vybrat
+	Select pages	Vybrat stránky
+	Show the accessibility report	Zobrazit zprávu o přístupnosti
+	Split into files…	Rozdělit na soubory…
+	Toggle fit page / fit width	Přepnout přizpůsobení stránce / šířce
+	Try the form as people filling it in will see it	Vyzkoušejte formulář tak, jak ho uvidí lidé, kteří jej vyplňují
+	Zoom in	Přiblížit
+	Zoom out	Oddálit
+	PDF tools	Nástroje PDF
+	Edit, convert, organize and work with PDFs quickly, simply and securely.	Upravujte, převádějte, organizujte a pracujte s PDF rychle, jednoduše a bezpečně.
+	Recent files	Nedávné soubory
+	Everything you need to work with PDFs in one place.	Vše, co potřebujete pro práci s PDF, na jednom místě.
+	Grid view	Zobrazení mřížky
+	List view	Zobrazení seznamu
+	Open files in progress	Otevřené soubory
+	There are open files or active tools. Do you really want to close KarnoxPDF?	Jsou otevřeny soubory nebo aktivní nástroje. Opravdu chcete zavřít KarnoxPDF?
+	Close KarnoxPDF	Zavřít KarnoxPDF
+	item open	položka otevřena
+	items open	položek otevřeno
+	Notification	Oznámení
+	Go to open files or active tools	Přejít na otevřené soubory nebo nástroje
+	Tools	Nástroje
+	No open files or active tools	Žádné otevřené soubory ani aktivní nástroje
+	Navigation	Navigace

@@ -1,0 +1,4 @@
+# actionlint: runner labels that exist that do not exist on GitHub-hosted runners.
+self-hosted-runner:
+  labels:
+    - macos-release

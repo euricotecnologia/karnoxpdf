@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  KarnoxPDF MSI (WiX Toolset v5: `dotnet tool install -g wix`). Built by package.ps1:
+
+    wix build karnoxpdf.wxs installer-ui.wxs -arch x64 -d Version=1.2.3 -d BinDir=... -d IconPath=... -o out.msi
+
+  Per-machine install into Program Files, a Start Menu shortcut, a desktop shortcut (on by default,
+  optional), an App Paths entry, and KarnoxPDF registered as a PDF handler (offered under "Open with"
+  and in Default apps, never forced as the default). Files opened with KarnoxPDF arrive on its
+  command line.
+-->
+<Wix xmlns="http://wixtoolset.org/schemas/v4/wxs">
+  <Package
+      Name="KarnoxPDF"
+      Manufacturer="KarnoxPDF contributors"
+      Version="$(var.Version)"
+      UpgradeCode="7705C3E7-5094-4FDF-AA3D-642E40E1CB53"
+      Scope="perMachine"
+      Compressed="yes"
+      Language="1033">
+    <SummaryInformation Description="KarnoxPDF PDF workbench" Manufacturer="KarnoxPDF contributors" />
+    <!-- Same-version upgrades let successive pre-releases of one X.Y.Z replace each other
+         (MSI versions are numeric, so 1.2.3-rc.1 and 1.2.3-rc.2 are both 1.2.3). -->
+    <MajorUpgrade AllowSameVersionUpgrades="yes"
+        DowngradeErrorMessage="A newer version of KarnoxPDF is already installed." />
+    <MediaTemplate EmbedCab="yes" CompressionLevel="high" />
+
+    <!-- Windows Installer requires an Icon id ending in .ico or .exe, or advertised shortcuts and
+         Add/Remove Programs show a blank icon (#57). -->
+    <Icon Id="KarnoxPDFIcon.ico" SourceFile="$(var.IconPath)" />
+    <Property Id="ARPPRODUCTICON" Value="KarnoxPDFIcon.ico" />
+    <Property Id="ARPURLINFOABOUT" Value="https://github.com/euricotecnologia/karnoxpdf" />
+    <!-- Desktop shortcut (#143): on by default, a checkbox in the full-UI welcome dialog, and
+         INSTALLDESKTOPSHORTCUT=0 on the msiexec command line for unattended installs. Secure, so the
+         choice made in the (unelevated) UI reaches the elevated install. -->
+    <Property Id="INSTALLDESKTOPSHORTCUT" Value="1" Secure="yes" />
+    <UIRef Id="KarnoxPDFInstallerUI" />
+
+    <StandardDirectory Id="ProgramFiles6432Folder">
+      <Directory Id="INSTALLFOLDER" Name="KarnoxPDF" />
+    </StandardDirectory>
+    <StandardDirectory Id="ProgramMenuFolder" />
+    <StandardDirectory Id="DesktopFolder" />
+
+    <Feature Id="Main" Title="KarnoxPDF" Level="1">
+      <ComponentGroupRef Id="KarnoxPDFFiles" />
+    </Feature>
+  </Package>
+
+  <Fragment>
+    <ComponentGroup Id="KarnoxPDFFiles" Directory="INSTALLFOLDER">
+      <Component Id="KarnoxPDFApp" Guid="3FF6EC88-E55A-4F68-809D-4BC23E1D98FA">
+        <File Id="KarnoxPDFExe" Source="$(var.BinDir)\karnoxpdf.exe" KeyPath="yes" />
+
+        <RegistryValue Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\App Paths\karnoxpdf.exe" Value="[#KarnoxPDFExe]" Type="string" />
+
+        <!-- PDF files (#107): KarnoxPDF is offered under "Open with" and in Settings ▸ Default
+             apps, through Windows' Default Programs registration (a ProgID, OpenWithProgids,
+             Capabilities and RegisteredApplications). It never takes over an existing default:
+             .pdf's own default value is left alone, and the user chooses. Without this, the only
+             KarnoxPDF entry to pick was the advertised Start Menu shortcut, which Windows can't
+             run as a file handler ("This app can't run on your PC"). -->
+        <RegistryValue Root="HKLM" Key="Software\Classes\KarnoxPDF.Document" Value="PDF Document" Type="string" />
+        <RegistryValue Root="HKLM" Key="Software\Classes\KarnoxPDF.Document\DefaultIcon" Value="[#KarnoxPDFExe],0" Type="string" />
+        <RegistryValue Root="HKLM" Key="Software\Classes\KarnoxPDF.Document\shell\open\command" Value="&quot;[#KarnoxPDFExe]&quot; &quot;%1&quot;" Type="string" />
+        <RegistryValue Root="HKLM" Key="Software\Classes\.pdf\OpenWithProgids" Name="KarnoxPDF.Document" Value="" Type="string" />
+        <RegistryValue Root="HKLM" Key="Software\Classes\Applications\karnoxpdf.exe" Name="FriendlyAppName" Value="KarnoxPDF" Type="string" />
+        <RegistryValue Root="HKLM" Key="Software\Classes\Applications\karnoxpdf.exe\SupportedTypes" Name=".pdf" Value="" Type="string" />
+        <RegistryValue Root="HKLM" Key="Software\Classes\Applications\karnoxpdf.exe\shell\open\command" Value="&quot;[#KarnoxPDFExe]&quot; &quot;%1&quot;" Type="string" />
+        <RegistryValue Root="HKLM" Key="Software\KarnoxPDF\Capabilities" Name="ApplicationName" Value="KarnoxPDF" Type="string" />
+        <RegistryValue Root="HKLM" Key="Software\KarnoxPDF\Capabilities" Name="ApplicationDescription" Value="Open-source PDF workbench" Type="string" />
+        <RegistryValue Root="HKLM" Key="Software\KarnoxPDF\Capabilities" Name="ApplicationIcon" Value="[#KarnoxPDFExe],0" Type="string" />
+        <RegistryValue Root="HKLM" Key="Software\KarnoxPDF\Capabilities\FileAssociations" Name=".pdf" Value="KarnoxPDF.Document" Type="string" />
+        <RegistryValue Root="HKLM" Key="Software\RegisteredApplications" Name="KarnoxPDF" Value="Software\KarnoxPDF\Capabilities" Type="string" />
+
+        <!-- Image context menu (#190): convert without changing image file defaults. -->
+        <RegistryValue Root="HKLM" Key="Software\Classes\SystemFileAssociations\.png\shell\KarnoxPDF.CreatePdf" Value="Create PDF with KarnoxPDF…" Type="string" />
+        <RegistryValue Root="HKLM" Key="Software\Classes\SystemFileAssociations\.png\shell\KarnoxPDF.CreatePdf" Name="MultiSelectModel" Value="Single" Type="string" />
+        <RegistryValue Root="HKLM" Key="Software\Classes\SystemFileAssociations\.png\shell\KarnoxPDF.CreatePdf\command" Value="&quot;[#KarnoxPDFExe]&quot; --create-images &quot;%1&quot;" Type="string" />
+        <RegistryValue Root="HKLM" Key="Software\Classes\SystemFileAssociations\.jpg\shell\KarnoxPDF.CreatePdf" Value="Create PDF with KarnoxPDF…" Type="string" />
+        <RegistryValue Root="HKLM" Key="Software\Classes\SystemFileAssociations\.jpg\shell\KarnoxPDF.CreatePdf" Name="MultiSelectModel" Value="Single" Type="string" />
+        <RegistryValue Root="HKLM" Key="Software\Classes\SystemFileAssociations\.jpg\shell\KarnoxPDF.CreatePdf\command" Value="&quot;[#KarnoxPDFExe]&quot; --create-images &quot;%1&quot;" Type="string" />
+        <RegistryValue Root="HKLM" Key="Software\Classes\SystemFileAssociations\.jpeg\shell\KarnoxPDF.CreatePdf" Value="Create PDF with KarnoxPDF…" Type="string" />
+        <RegistryValue Root="HKLM" Key="Software\Classes\SystemFileAssociations\.jpeg\shell\KarnoxPDF.CreatePdf" Name="MultiSelectModel" Value="Single" Type="string" />
+        <RegistryValue Root="HKLM" Key="Software\Classes\SystemFileAssociations\.jpeg\shell\KarnoxPDF.CreatePdf\command" Value="&quot;[#KarnoxPDFExe]&quot; --create-images &quot;%1&quot;" Type="string" />
+        <RegistryValue Root="HKLM" Key="Software\Classes\SystemFileAssociations\.tif\shell\KarnoxPDF.CreatePdf" Value="Create PDF with KarnoxPDF…" Type="string" />
+        <RegistryValue Root="HKLM" Key="Software\Classes\SystemFileAssociations\.tif\shell\KarnoxPDF.CreatePdf" Name="MultiSelectModel" Value="Single" Type="string" />
+        <RegistryValue Root="HKLM" Key="Software\Classes\SystemFileAssociations\.tif\shell\KarnoxPDF.CreatePdf\command" Value="&quot;[#KarnoxPDFExe]&quot; --create-images &quot;%1&quot;" Type="string" />
+        <RegistryValue Root="HKLM" Key="Software\Classes\SystemFileAssociations\.tiff\shell\KarnoxPDF.CreatePdf" Value="Create PDF with KarnoxPDF…" Type="string" />
+        <RegistryValue Root="HKLM" Key="Software\Classes\SystemFileAssociations\.tiff\shell\KarnoxPDF.CreatePdf" Name="MultiSelectModel" Value="Single" Type="string" />
+        <RegistryValue Root="HKLM" Key="Software\Classes\SystemFileAssociations\.tiff\shell\KarnoxPDF.CreatePdf\command" Value="&quot;[#KarnoxPDFExe]&quot; --create-images &quot;%1&quot;" Type="string" />
+        <RegistryValue Root="HKLM" Key="Software\Classes\SystemFileAssociations\.gif\shell\KarnoxPDF.CreatePdf" Value="Create PDF with KarnoxPDF…" Type="string" />
+        <RegistryValue Root="HKLM" Key="Software\Classes\SystemFileAssociations\.gif\shell\KarnoxPDF.CreatePdf" Name="MultiSelectModel" Value="Single" Type="string" />
+        <RegistryValue Root="HKLM" Key="Software\Classes\SystemFileAssociations\.gif\shell\KarnoxPDF.CreatePdf\command" Value="&quot;[#KarnoxPDFExe]&quot; --create-images &quot;%1&quot;" Type="string" />
+        <RegistryValue Root="HKLM" Key="Software\Classes\SystemFileAssociations\.bmp\shell\KarnoxPDF.CreatePdf" Value="Create PDF with KarnoxPDF…" Type="string" />
+        <RegistryValue Root="HKLM" Key="Software\Classes\SystemFileAssociations\.bmp\shell\KarnoxPDF.CreatePdf" Name="MultiSelectModel" Value="Single" Type="string" />
+        <RegistryValue Root="HKLM" Key="Software\Classes\SystemFileAssociations\.bmp\shell\KarnoxPDF.CreatePdf\command" Value="&quot;[#KarnoxPDFExe]&quot; --create-images &quot;%1&quot;" Type="string" />
+        <RegistryValue Root="HKLM" Key="Software\Classes\SystemFileAssociations\.jp2\shell\KarnoxPDF.CreatePdf" Value="Create PDF with KarnoxPDF…" Type="string" />
+        <RegistryValue Root="HKLM" Key="Software\Classes\SystemFileAssociations\.jp2\shell\KarnoxPDF.CreatePdf" Name="MultiSelectModel" Value="Single" Type="string" />
+        <RegistryValue Root="HKLM" Key="Software\Classes\SystemFileAssociations\.jp2\shell\KarnoxPDF.CreatePdf\command" Value="&quot;[#KarnoxPDFExe]&quot; --create-images &quot;%1&quot;" Type="string" />
+        <RegistryValue Root="HKLM" Key="Software\Classes\SystemFileAssociations\.j2k\shell\KarnoxPDF.CreatePdf" Value="Create PDF with KarnoxPDF…" Type="string" />
+        <RegistryValue Root="HKLM" Key="Software\Classes\SystemFileAssociations\.j2k\shell\KarnoxPDF.CreatePdf" Name="MultiSelectModel" Value="Single" Type="string" />
+        <RegistryValue Root="HKLM" Key="Software\Classes\SystemFileAssociations\.j2k\shell\KarnoxPDF.CreatePdf\command" Value="&quot;[#KarnoxPDFExe]&quot; --create-images &quot;%1&quot;" Type="string" />
+        <RegistryValue Root="HKLM" Key="Software\Classes\SystemFileAssociations\.jpx\shell\KarnoxPDF.CreatePdf" Value="Create PDF with KarnoxPDF…" Type="string" />
+        <RegistryValue Root="HKLM" Key="Software\Classes\SystemFileAssociations\.jpx\shell\KarnoxPDF.CreatePdf" Name="MultiSelectModel" Value="Single" Type="string" />
+        <RegistryValue Root="HKLM" Key="Software\Classes\SystemFileAssociations\.jpx\shell\KarnoxPDF.CreatePdf\command" Value="&quot;[#KarnoxPDFExe]&quot; --create-images &quot;%1&quot;" Type="string" />
+      </Component>
+
+      <!-- Shortcuts (#143) are plain links to karnoxpdf.exe, not advertised MSI shortcuts: advertised
+           ones point at a Windows Installer descriptor rather than the program, which Windows can't
+           use as a file handler (#107), and 0.2.1's advertised one went missing from the Start menu
+           (#143). Each has its own component with an HKLM key path, so Windows Installer removes it
+           on uninstall; in this per-machine package both folders are the all-users ones. -->
+      <Component Id="KarnoxPDFStartMenuShortcut" Directory="ProgramMenuFolder" Guid="5217D23B-F2C8-4C98-9EDE-3C73E4E130C0">
+        <Shortcut Id="StartMenuShortcut" Name="KarnoxPDF" Description="KarnoxPDF PDF workbench"
+            Target="[#KarnoxPDFExe]" WorkingDirectory="INSTALLFOLDER" Icon="KarnoxPDFIcon.ico" IconIndex="0" />
+        <RegistryValue Root="HKLM" Key="Software\KarnoxPDF\Shortcuts" Name="StartMenu" Type="integer" Value="1" KeyPath="yes" />
+      </Component>
+
+      <Component Id="KarnoxPDFDesktopShortcut" Directory="DesktopFolder" Guid="45F6DB7B-D6DC-4EF3-8003-EDDFED91ABF0"
+          Condition="INSTALLDESKTOPSHORTCUT = 1">
+        <Shortcut Id="DesktopShortcut" Name="KarnoxPDF" Description="KarnoxPDF PDF workbench"
+            Target="[#KarnoxPDFExe]" WorkingDirectory="INSTALLFOLDER" Icon="KarnoxPDFIcon.ico" IconIndex="0" />
+        <RegistryValue Root="HKLM" Key="Software\KarnoxPDF\Shortcuts" Name="Desktop" Type="integer" Value="1" KeyPath="yes" />
+      </Component>
+
+      <Component Id="KarnoxPDFCli">
+        <File Id="KarnoxPDFCliExe" Source="$(var.BinDir)\karnoxpdf-cli.exe" KeyPath="yes" />
+      </Component>
+    </ComponentGroup>
+  </Fragment>
+</Wix>

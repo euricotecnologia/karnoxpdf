@@ -1,0 +1,20 @@
+[package]
+name = "karnoxpdf-edit"
+description = "Page content editing: headers and footers, watermarks, backgrounds, Bates numbers (ISO 32000-2 §14.8)"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+
+[lints]
+workspace = true
+
+[dependencies]
+karnoxpdf-cos = { workspace = true }
+karnoxpdf-content = { workspace = true }
+karnoxpdf-fonts = { workspace = true }
+karnoxpdf-model = { workspace = true }
+thiserror = { workspace = true }
+
+[dev-dependencies]
+hayro-syntax = { workspace = true }
+karnoxpdf-annot = { workspace = true }

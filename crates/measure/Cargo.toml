@@ -1,0 +1,17 @@
+[package]
+name = "karnoxpdf-measure"
+description = "Calibrated 2D PDF measurements, viewports and snapping"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+
+[lints]
+workspace = true
+
+[dependencies]
+karnoxpdf-cos = { workspace = true }
+karnoxpdf-model = { workspace = true }
+karnoxpdf-content = { workspace = true }
+karnoxpdf-annot = { workspace = true }
+serde = { workspace = true }
+thiserror = { workspace = true }

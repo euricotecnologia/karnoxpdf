@@ -1,0 +1,40 @@
+[package]
+name = "karnoxpdf-engine"
+description = "KarnoxPDF engine façade: session, documents, command/tool catalogue"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+
+[lints]
+workspace = true
+
+[dependencies]
+karnoxpdf-measure = { workspace = true }
+image = { version = "0.25", default-features = false, features = ["jpeg", "tiff"] }
+karnoxpdf-render = { workspace = true }
+karnoxpdf-cos = { workspace = true }
+karnoxpdf-organize = { workspace = true }
+karnoxpdf-annot = { workspace = true }
+karnoxpdf-forms = { workspace = true }
+karnoxpdf-xfa = { workspace = true }
+karnoxpdf-edit = { workspace = true }
+karnoxpdf-redact = { workspace = true }
+karnoxpdf-print = { workspace = true }
+karnoxpdf-xfdf = { workspace = true }
+karnoxpdf-sign = { workspace = true }
+karnoxpdf-optimize = { workspace = true }
+karnoxpdf-a11y = { workspace = true }
+karnoxpdf-ocr = { workspace = true }
+karnoxpdf-js = { workspace = true }
+karnoxpdf-compare = { workspace = true }
+karnoxpdf-preflight = { workspace = true }
+karnoxpdf-export = { workspace = true }
+karnoxpdf-fonts = { workspace = true }
+karnoxpdf-create = { workspace = true }
+karnoxpdf-model = { workspace = true }
+thiserror = { workspace = true }
+png = "0.18"
+
+[target.'cfg(not(target_arch = "wasm32"))'.dependencies]
+# Already in the graph through lopdf; used only for the local UTC offset ("today").
+chrono = { version = "0.4", default-features = false, features = ["clock"] }

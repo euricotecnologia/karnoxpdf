@@ -1,0 +1,26 @@
+[package]
+name = "karnoxpdf-cli"
+description = "KarnoxPDF command-line tool: inspect, render and robustness-check PDFs"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+
+[[bin]]
+name = "karnoxpdf-cli"
+path = "src/main.rs"
+
+[lints]
+workspace = true
+
+[dependencies]
+karnoxpdf-render = { workspace = true }
+serde_json = { workspace = true }
+karnoxpdf-engine = { workspace = true }
+karnoxpdf-cos = { workspace = true }
+karnoxpdf-automation = { workspace = true }
+base64 = "0.22"
+
+[features]
+default = ["mcp"]
+# The opt-in MCP server (`karnoxpdf-cli mcp`). Build with --no-default-features to leave it out.
+mcp = ["karnoxpdf-automation/mcp"]

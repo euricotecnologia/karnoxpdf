@@ -1,0 +1,895 @@
+# Brazilian Portuguese (pt-br) catalog. Format: see the header of ja.tsv
+# (context <TAB> source <TAB> translation; @id, @plural and other contexts; escapes \n \t \\).
+# Plural forms (see `plural_pt` in i18n/mod.rs): one (0 and 1) | other.
+#
+# Clean-room: every entry was written from the plain meaning of the English label using ordinary
+# Brazilian Portuguese computing vocabulary. No proprietary localisation resource, string table or
+# product UI (Acrobat's included) was consulted or copied; add entries the same way.
+# Product and technology names (KarnoxPDF, PDF, Acrobat JavaScript ...) are not translated;
+# the trailing "…" of dialog commands is kept.
+
+	Menu	Menu
+	File	Arquivo
+	Edit	Editar
+	Pages	Páginas
+	View	Exibir
+	Help	Ajuda
+	Preferences	Preferências
+	Preferences…	Preferências…
+	Interface language	Idioma da interface
+	Identity	Identidade
+	Name on new comments	Nome nos novos comentários
+	Open…	Abrir…
+	New blank PDF	Novo PDF em branco
+	Create PDF from file…	Criar PDF a partir de arquivo…
+	Create PDF from images…	Criar PDF a partir de imagens…
+	Create PDF from clipboard	Criar PDF a partir da área de transferência
+	Combine files…	Combinar arquivos…
+	Save	Salvar
+	Save as…	Salvar como…
+	Close file	Fechar arquivo
+	Close all	Fechar tudo
+	Revert	Reverter
+	Print…	Imprimir…
+	Print	Imprimir
+	Document properties…	Propriedades do documento…
+	Undo	Desfazer
+	Redo	Refazer
+	Find…	Localizar…
+	Advanced search…	Pesquisa avançada…
+	Copy pages	Copiar páginas
+	Cut pages	Recortar páginas
+	Paste pages	Colar páginas
+	Fit visible	Ajustar ao visível
+	Marquee zoom	Zoom por seleção
+	Take a snapshot	Capturar instantâneo
+	Full screen mode	Modo de tela cheia
+	Read mode	Modo de leitura
+	Switch light / dark theme	Alternar tema claro / escuro
+	Comments panel	Painel de comentários
+	Form fields panel	Painel de campos de formulário
+	Clear form	Limpar formulário
+	Find tools and commands…	Localizar ferramentas e comandos…
+	Zoom	Zoom
+	Actual size	Tamanho real
+	Zoom to page level	Ajustar à página
+	Fit to width	Ajustar à largura
+	Display theme	Tema de exibição
+	Use system setting	Usar configuração do sistema
+	Light gray	Claro
+	Dark gray	Escuro
+	Side panels	Painéis laterais
+	Enable Acrobat JavaScript	Ativar o Acrobat JavaScript
+	OK	OK
+	Auto	Automático
+	Original source on GitHub	Código-fonte original no GitHub
+	Source and credits	Origem e créditos
+	KarnoxPDF is based on the open-source KarnoxPDF project.	KarnoxPDF é baseado no projeto de código aberto KarnoxPDF.
+	Signatures panel	Painel de assinaturas
+	Export to image…	Exportar para imagem…
+	Reduce file size…	Reduzir tamanho do arquivo…
+	Optimize PDF…	Otimizar PDF…
+	Export to text…	Exportar para texto…
+	Export to Word…	Exportar para Word…
+	Export to HTML…	Exportar para HTML…
+	Export to RTF…	Exportar para RTF…
+	Export all images…	Exportar todas as imagens…
+	Protect using password…	Proteger com senha…
+	Remove security	Remover proteção
+	Security properties…	Propriedades de segurança…
+	Organize pages	Organizar páginas
+	New bookmark	Novo marcador
+	Rotate pages clockwise	Girar páginas no sentido horário
+	Rotate pages counterclockwise	Girar páginas no sentido anti-horário
+	Delete pages	Excluir páginas
+	Insert blank page	Inserir página em branco
+	Rotate pages…	Girar páginas…
+	Duplicate pages	Duplicar páginas
+	Crop pages	Recortar páginas
+	Set page boxes…	Definir caixas de página…
+	Insert pages from file…	Inserir páginas de arquivo…
+	Replace pages…	Substituir páginas…
+	Extract pages…	Extrair páginas…
+	Split document…	Dividir documento…
+	Number pages…	Numerar páginas…
+	Keyboard shortcuts	Atalhos de teclado
+	Check for updates…	Verificar atualizações…
+	About KarnoxPDF	Sobre o KarnoxPDF
+	About	Sobre
+	Documents and view	Documentos e visualização
+	General	Geral
+	Default workspace mode	Modo padrão de trabalho
+	All Tools	Todas as ferramentas
+	Read	Leitura
+	Convert	Converter
+	E-Sign	Assinatura eletrônica
+	Used when opening PDFs. An explicit launch or control mode takes precedence for the session.	Usado ao abrir PDFs. Um modo definido na inicialização ou pelo controle tem prioridade nesta sessão.
+	Default page display	Exibição padrão das páginas
+	Continuous scrolling	Rolagem contínua
+	Single page	Página única
+	Two-page view	Duas páginas
+	Default zoom	Zoom padrão
+	Fit to height	Ajustar à altura
+	Custom	Personalizado
+	Used when a PDF doesn't ask for a layout or zoom. Continuous scrolling never snaps between pages.	Usado quando o PDF não define a disposição nem o zoom. A rolagem contínua não avança por página.
+	Scripts run in a sandbox without file or network access. A script that asks to open a web page needs your permission first. With JavaScript off, Acrobat's standard format, validate and calculate functions still work.	Os scripts são executados em ambiente isolado, sem acesso a arquivos ou à rede. Para abrir uma página da web, o script precisa da sua permissão. Mesmo com o JavaScript desativado, as funções padrão de formatação, validação e cálculo continuam disponíveis.
+	Welcome to KarnoxPDF	Boas-vindas ao KarnoxPDF
+	An open-source PDF workbench — local, private, and scriptable.	Um espaço de trabalho para PDF de código aberto, local, privado e automatizável.
+	Recommended tools	Ferramentas recomendadas
+	Use now	Usar agora
+	Open file	Abrir arquivo
+	Recent	Recentes
+	Files you open in KarnoxPDF appear here. Drop a PDF anywhere to open it.	Os arquivos abertos no KarnoxPDF aparecem aqui. Arraste um PDF para qualquer área da janela para abri-lo.
+	Privacy	Privacidade
+	KarnoxPDF works offline. No telemetry, no account, and no cloud processing unless you add a provider.	O KarnoxPDF funciona offline. Não há telemetria, conta nem processamento na nuvem, a menos que você configure um provedor.
+	All tools	Todas as ferramentas
+	View more	Ver mais
+	View less	Ver menos
+	Export a PDF	Exportar PDF
+	Fill & Sign	Preencher e assinar
+	Edit a PDF	Editar PDF
+	Edit text & images	Editar texto e imagens
+	Text	Texto
+	Image	Imagem
+	Link	Link
+	Format text	Formatar texto
+	Add content	Adicionar conteúdo
+	Modify page	Modificar página
+	Edit image	Editar imagem
+	Format shape	Formatar forma
+	Bold	Negrito
+	Italic	Itálico
+	Align left	Alinhar à esquerda
+	Centre	Centralizar
+	Align right	Alinhar à direita
+	Justify	Justificar
+	Standard fonts; text outside Windows-1252 isn't supported yet.	Fontes padrão; ainda não há suporte a texto fora do Windows-1252.
+	Line spacing	Espaçamento entre linhas
+	Character spacing	Espaçamento entre caracteres
+	Horizontal scale	Escala horizontal
+	Rotate counterclockwise	Girar no sentido anti-horário
+	Rotate clockwise	Girar no sentido horário
+	Flip horizontal	Inverter horizontalmente
+	Flip vertical	Inverter verticalmente
+	Replace image	Substituir imagem
+	Save Image As…	Salvar imagem como…
+	Crop (% trimmed from each side)	Recortar (% removido de cada lado)
+	Line width	Espessura da linha
+	gradient or pattern	gradiente ou padrão
+	Select text or an image on the page to edit its properties.	Selecione um texto ou uma imagem na página para editar suas propriedades.
+	Header and footer	Cabeçalho e rodapé
+	Bates numbering	Numeração Bates
+	Background	Plano de fundo
+	Click text or an image to edit it	Clique em um texto ou uma imagem para editar
+	Create a PDF	Criar PDF
+	Combine files	Combinar arquivos
+	Add comments	Adicionar comentários
+	Scan & OCR	Digitalizar e reconhecer texto
+	Protect a PDF	Proteger PDF
+	Redact a PDF	Ocultar conteúdo do PDF
+	Compress a PDF	Comprimir PDF
+	Prepare a form	Preparar formulário
+	Add a stamp	Adicionar carimbo
+	Use a certificate	Usar certificado
+	Page grid	Grade de páginas
+	Rotate	Girar
+	Delete	Excluir
+	Sticky note	Nota adesiva
+	Highlight text	Realçar texto
+	Underline	Sublinhar
+	Field list	Lista de campos
+	Detect form fields	Detectar campos de formulário
+	Rotate pages	Girar páginas
+	Insert pages	Inserir páginas
+	Extract pages	Extrair páginas
+	Protect with password	Proteger com senha
+	Remove hidden information	Remover informações ocultas
+	Open	Abrir
+	Find tools and commands	Localizar ferramentas e comandos
+@plural	{n} page|{n} pages	{n} página|{n} páginas
+	Merge PDF	Juntar PDF
+	Combine PDF files in any order. Fast and easy.	Combine arquivos PDF na ordem que quiser, de forma rápida e simples.
+	Split PDF	Dividir PDF
+	Select a page range, extract one page, or save each page as a separate PDF.	Selecione um intervalo, extraia uma página ou salve cada página em um PDF separado.
+	Compress PDF	Comprimir PDF
+	Reduce PDF file size while keeping the best possible quality.	Reduza o tamanho do PDF preservando a melhor qualidade possível.
+	PDF to Word	PDF para Word
+	Convert PDF files to editable Word DOCX documents.	Converta arquivos PDF em documentos Word DOCX editáveis.
+	PDF to PowerPoint	PDF para PowerPoint
+	Convert PDF files to editable PowerPoint PPTX presentations.	Converta arquivos PDF em apresentações PowerPoint PPTX editáveis.
+	PDF to Excel	PDF para Excel
+	Extract data from PDFs into Excel spreadsheets in seconds.	Extraia dados de PDFs para planilhas do Excel em segundos.
+	Word to PDF	Word para PDF
+	Convert Word DOC or DOCX documents to PDF.	Converta documentos Word DOC ou DOCX em PDF.
+	PowerPoint to PDF	PowerPoint para PDF
+	Convert PowerPoint PPT or PPTX presentations to PDF.	Converta apresentações PowerPoint PPT ou PPTX em PDF.
+	Excel to PDF	Excel para PDF
+	Convert Excel spreadsheets to PDF. Choose portrait or landscape orientation.	Converta planilhas do Excel em PDF. Escolha a orientação vertical ou horizontal.
+	Edit PDF	Editar PDF
+	Add text, images, shapes, and freehand annotations to a PDF. Adjust their size, font, and color.	Adicione texto, imagens, formas e anotações livres ao PDF. Ajuste tamanho, fonte e cor.
+	PDF to JPG	PDF para JPG
+	Extract images from a PDF or convert each page to a JPG file.	Extraia imagens do PDF ou converta cada página em um arquivo JPG.
+	JPG to PDF	JPG para PDF
+	Convert JPG images to PDF. Adjust orientation and margins.	Converta imagens JPG em PDF. Ajuste a orientação e as margens.
+	Sign PDF	Assinar PDF
+	Sign a PDF or request electronic signatures from others.	Assine um PDF ou solicite assinaturas eletrônicas de outras pessoas.
+	Watermark	Marca d'água
+	Place an image or text watermark on a PDF. Adjust position, opacity, and typography.	Insira uma marca d'água de imagem ou texto no PDF. Ajuste posição, opacidade e tipografia.
+	Rotate PDF	Girar PDF
+	Rotate one PDF or several PDF files at once.	Gire um PDF ou vários arquivos PDF de uma só vez.
+	HTML to PDF	HTML para PDF
+	Convert HTML web pages to PDF by pasting a URL.	Converta páginas HTML em PDF colando um URL.
+	Unlock PDF	Desbloquear PDF
+	Remove a PDF's security password so you can use the file.	Remova a senha de proteção de um PDF para poder usar o arquivo.
+	Protect PDF	Proteger PDF
+	Protect a PDF with a password to prevent unauthorized access.	Proteja um PDF com senha para impedir o acesso não autorizado.
+	Settings	Configurações
+	Language	Idioma
+	System themes	Temas do sistema
+	Files are combined in this order. Leave Pages empty to take every page.	Os arquivos serão unidos nesta ordem. Deixe Páginas em branco para incluir todas as páginas.
+	Add at least two files	Adicione pelo menos dois arquivos
+	Add files…	Adicionar arquivos…
+	1 page	1 página
+	{n} pages	{n} páginas
+	All pages	Todas as páginas
+	Pages of {name} to combine, e.g. 1-3, 6	Páginas de {name} para unir, por exemplo: 1-3, 6
+	Move up	Mover para cima
+	Move down	Mover para baixo
+	Remove {name}	Remover {name}
+	Combine	Juntar PDFs
+	Close	Fechar
+	Cancel	Cancelar
+	Combined {n} files	{n} arquivos unidos
+	Save changes to “{name}” before closing?	Salvar as alterações em “{name}” antes de fechar?
+	Your changes will be lost if you don't save them.	Suas alterações serão perdidas se você não as salvar.
+	Don't save	Não salvar
+	Unsaved changes	Alterações não salvas
+	Choose a PDF and how its pages should be divided.	Escolha um PDF e como suas páginas serão divididas.
+	Source PDF	PDF de origem
+	Change file	Trocar arquivo
+	Select a PDF to split	Selecione um PDF para dividir
+	Split method	Modo de divisão
+	Number of pages	Número de páginas
+	Pages per file	Páginas por arquivo
+	Before page numbers	Antes das páginas indicadas
+	Start a new file at each page listed.	Inicie um novo arquivo em cada página indicada.
+	File size	Tamanho do arquivo
+	At most	No máximo
+	Top-level bookmarks ({n})	Marcadores principais ({n})
+	Creates {f} files from {n} pages.	Cria {f} arquivos a partir de {n} páginas.
+	Each file holds as many of the {n} pages as fit.	Cada arquivo terá o máximo possível das {n} páginas.
+	Choose settings that create at least two files.	Escolha opções que criem pelo menos dois arquivos.
+	The source PDF will not be changed.	O PDF de origem não será alterado.
+	Split and save	Dividir e salvar
+	Enter page numbers separated by commas, such as 3, 6.	Digite os números das páginas separados por vírgulas, como 3, 6.
+	Choose page numbers from 2 through the last page.	Escolha páginas entre a segunda e a última.
+	Enter at least one page where a new file should start.	Indique pelo menos uma página para iniciar um novo arquivo.
+	Choose a file size between 0.05 and 2000 MB.	Escolha um tamanho entre 0,05 e 2000 MB.
+	This PDF has no top-level bookmarks that start a new part.	Este PDF não tem marcadores principais que iniciem uma nova parte.
+	Choose a folder for the split files	Escolha uma pasta para os arquivos divididos
+	A file named {name} already exists in the chosen folder.	Já existe um arquivo chamado {name} na pasta escolhida.
+	Low compression	Compressão leve
+	Larger file, higher image quality · 200 ppi	Arquivo maior, melhor qualidade de imagem · 200 ppi
+	Balanced compression	Compressão equilibrada
+	Good balance of size and quality · 150 ppi	Equilíbrio entre tamanho e qualidade · 150 ppi
+	High compression	Compressão alta
+	Smaller file, lower image quality · 96 ppi	Arquivo menor, qualidade de imagem reduzida · 96 ppi
+	Reduce file size and choose how much image quality to keep.	Reduza o tamanho do arquivo e escolha quanta qualidade de imagem manter.
+	Select a PDF to compress	Selecione um PDF para comprimir
+	Compression level	Nível de compressão
+	Choose a level, then compare the result before saving.	Escolha um nível e compare o resultado antes de salvar.
+	The original PDF will not be changed.	O PDF original não será alterado.
+	Result	Resultado
+	Original: {size}	Original: {size}
+	Compressed: {size}	Comprimido: {size}
+	{percent}% smaller	{percent}% menor
+	Save compressed PDF	Salvar PDF comprimido
+	This PDF did not get smaller. Try another level.	Este PDF não ficou menor. Tente outro nível.
+	The PDF has no pages to compress.	O PDF não tem páginas para comprimir.
+	compressed	comprimido
+	A file with that name already exists. Choose another name.	Já existe um arquivo com esse nome. Escolha outro nome.
+	Compressed PDF saved to {path}	PDF comprimido salvo em {path}
+	Convert a PDF into an editable Word DOCX document.	Converta um PDF em um documento Word DOCX editável.
+	Select a PDF to convert	Selecione um PDF para converter
+	About the conversion	Sobre a conversão
+	Text, headings, tables and images are transferred to DOCX. The layout may differ from the PDF.	Textos, títulos, tabelas e imagens são transferidos para o DOCX. O layout pode ser diferente do PDF.
+	Scanned pages need OCR before their text can be edited.	Páginas digitalizadas precisam de OCR para que o texto possa ser editado.
+	Convert to Word	Converter para Word
+	Word document ready	Documento Word pronto
+	DOCX size: {size}	Tamanho do DOCX: {size}
+	Save Word document	Salvar documento Word
+	The PDF has no pages to convert.	O PDF não tem páginas para converter.
+	Couldn't convert to Word: {e}	Não foi possível converter para Word: {e}
+	Couldn't convert to Word: the PDF could not be opened.	Não foi possível converter para Word: o PDF não pôde ser aberto.
+	Couldn't convert to Word: the DOCX file was invalid.	Não foi possível converter para Word: o arquivo DOCX é inválido.
+	Choose a .docx filename.	Escolha um nome de arquivo .docx.
+	Word document saved to {path}	Documento Word salvo em {path}
+	Convert PDF pages into editable PowerPoint slides.	Converta páginas PDF em slides editáveis do PowerPoint.
+	Extract tables and text into an editable Excel workbook.	Extraia tabelas e textos para uma pasta de trabalho editável do Excel.
+	Each PDF page becomes a slide. Text boxes and images can be edited; fonts and layout may differ from the original.	Cada página do PDF se torna um slide. Caixas de texto e imagens podem ser editadas; fontes e layout podem diferir do original.
+	Detected tables become spreadsheet cells; remaining text follows below. Images and the exact PDF layout are not transferred.	As tabelas detectadas se tornam células; o texto restante aparece abaixo. Imagens e o layout exato do PDF não são transferidos.
+	Convert to PowerPoint	Converter para PowerPoint
+	Convert to Excel	Converter para Excel
+	PowerPoint presentation ready	Apresentação do PowerPoint pronta
+	Excel workbook ready	Pasta de trabalho do Excel pronta
+	Save PowerPoint presentation	Salvar apresentação do PowerPoint
+	Save Excel workbook	Salvar pasta de trabalho do Excel
+	Couldn't convert the PDF: {e}	Não foi possível converter o PDF: {e}
+	Couldn't convert the PDF: the file could not be opened.	Não foi possível converter o PDF: o arquivo não pôde ser aberto.
+	Couldn't convert the PDF: the Office file was invalid.	Não foi possível converter o PDF: o arquivo Office é inválido.
+	Choose a .{extension} filename.	Escolha um nome de arquivo .{extension}.
+	Office file saved to {path}	Arquivo Office salvo em {path}
+	Export to PowerPoint…	Exportar para PowerPoint…
+	Export to Excel…	Exportar para Excel…
+	Convert paragraph text from Word DOCX documents to PDF.	Converta o texto dos parágrafos de documentos Word DOCX em PDF.
+	Convert the text in a Word DOCX document to PDF.	Converta o texto de um documento Word DOCX em PDF.
+	Source DOCX	DOCX de origem
+	Select a DOCX to convert	Selecione um DOCX para converter
+	Paragraph text is transferred. Word formatting, tables and images are not retained. Save older .doc files as DOCX first.	O texto dos parágrafos é transferido. A formatação, as tabelas e as imagens do Word não são preservadas. Salve arquivos .doc antigos como DOCX antes.
+	The source DOCX will not be changed.	O DOCX original não será alterado.
+	Convert to PDF	Converter para PDF
+	PDF ready	PDF pronto
+	Save PDF	Salvar PDF
+	Choose a .docx file. Save older .doc files as DOCX first.	Escolha um arquivo .docx. Salve arquivos .doc antigos como DOCX antes.
+	Couldn't open Word document: invalid DOCX package.	Não foi possível abrir o documento Word: pacote DOCX inválido.
+	Couldn't convert Word document: invalid PDF output.	Não foi possível converter o documento Word: PDF gerado inválido.
+	Couldn't convert Word document: {e}	Não foi possível converter o documento Word: {e}
+	Converted file saved to {path}	Arquivo convertido salvo em {path}
+	Word to PDF…	Word para PDF…
+
+	Word DOCX	Documento Word (.docx)
+	Convert Word DOCX documents to PDF locally, with text and tables.	Converta documentos Word DOCX em PDF localmente, com texto e tabelas.
+	Convert a Word DOCX document to PDF in KarnoxPDF.	Converta um documento Word DOCX em PDF no KarnoxPDF.
+	KarnoxPDF converts this document locally. Paragraphs, basic formatting, tables and simple shapes are supported. Complex drawings and images are not supported yet. Save older .doc files as DOCX first.	O KarnoxPDF converte este documento localmente. Há suporte a parágrafos, formatação básica, tabelas e formas simples. Desenhos complexos e imagens ainda não são suportados. Salve arquivos .doc antigos como DOCX antes.
+	This DOCX contains a drawing or image that KarnoxPDF cannot convert yet.	Este DOCX contém um desenho ou imagem que o KarnoxPDF ainda não consegue converter.
+	Convert PowerPoint PPTX presentations to PDF locally, with text, shapes, pictures and tables.	Converta apresentações PowerPoint PPTX em PDF localmente, com texto, formas, imagens e tabelas.
+	Convert a PowerPoint PPTX presentation to PDF in KarnoxPDF.	Converta uma apresentação PowerPoint PPTX em PDF no KarnoxPDF.
+	Source PPTX	PPTX de origem
+	Select a PPTX to convert	Selecione um PPTX para converter
+	KarnoxPDF converts this presentation locally, one page per slide. Text, shapes, lines, pictures and tables are drawn; fonts are replaced by Helvetica, so line breaks can differ. Charts, SmartArt and embedded objects are not drawn yet, and text in scripts other than Latin cannot be converted yet. Save older .ppt files as PPTX first.	O KarnoxPDF converte esta apresentação localmente, com uma página por slide. Textos, formas, linhas, imagens e tabelas são desenhados; as fontes são substituídas pela Helvetica, então as quebras de linha podem diferir. Gráficos, SmartArt e objetos incorporados ainda não são desenhados, e textos em escritas que não sejam latinas ainda não podem ser convertidos. Salve arquivos .ppt antigos como PPTX antes.
+	The source PPTX will not be changed.	O PPTX original não será alterado.
+	Choose a .pptx file. Save older .ppt files as PPTX first.	Escolha um arquivo .pptx. Salve arquivos .ppt antigos como PPTX antes.
+	Couldn't open PowerPoint presentation: invalid PPTX package.	Não foi possível abrir a apresentação do PowerPoint: pacote PPTX inválido.
+	Couldn't convert PowerPoint presentation: {e}	Não foi possível converter a apresentação do PowerPoint: {e}
+	Couldn't convert PowerPoint presentation: the conversion stopped unexpectedly.	Não foi possível converter a apresentação do PowerPoint: a conversão parou inesperadamente.
+	Couldn't convert Word document: the conversion stopped unexpectedly.	Não foi possível converter o documento Word: a conversão parou inesperadamente.
+	Some content could not be converted:	Alguns conteúdos não puderam ser convertidos:
+	Hidden slides left out: {slides}	Slides ocultos omitidos: {slides}
+	Charts not drawn on slides {slides}	Gráficos não desenhados nos slides {slides}
+	SmartArt not drawn on slides {slides}	SmartArt não desenhado nos slides {slides}
+	Embedded objects not drawn on slides {slides}	Objetos incorporados não desenhados nos slides {slides}
+	Pictures in unsupported formats not drawn on slides {slides}	Imagens em formatos não suportados não desenhadas nos slides {slides}
+	Some shapes drawn as rectangles on slides {slides}	Algumas formas desenhadas como retângulos nos slides {slides}
+	Vertical text drawn horizontally on slides {slides}	Texto vertical desenhado na horizontal nos slides {slides}
+	Table styles missing from the file; colors not applied on slides {slides}	Estilos de tabela ausentes do arquivo; cores não aplicadas nos slides {slides}
+	Content that isn't supported yet on slides {slides}	Conteúdo ainda não suportado nos slides {slides}
+	PowerPoint to PDF…	PowerPoint para PDF…
+	PowerPoint PPTX	Apresentação do PowerPoint (.pptx)
+	Convert Excel XLSX workbooks to PDF locally. Choose portrait or landscape orientation.	Converta pastas de trabalho do Excel XLSX em PDF localmente. Escolha a orientação retrato ou paisagem.
+	Convert an Excel XLSX workbook to PDF in KarnoxPDF.	Converta uma pasta de trabalho do Excel XLSX em PDF no KarnoxPDF.
+	Source XLSX	XLSX de origem
+	Select an XLSX to convert	Selecione um XLSX para converter
+	KarnoxPDF prints every visible sheet locally, with the paper size, margins, scale, page breaks and print titles the workbook sets. Values keep their number formats, with fills, borders and alignment. Charts, pictures and conditional formatting are not drawn yet, fonts are replaced by Helvetica, and text in scripts other than Latin cannot be converted yet. Save older .xls files as XLSX first.	O KarnoxPDF imprime localmente todas as planilhas visíveis, com o tamanho do papel, as margens, a escala, as quebras de página e os títulos de impressão definidos na pasta de trabalho. Os valores mantêm seus formatos de número, com preenchimentos, bordas e alinhamento. Gráficos, imagens e formatação condicional ainda não são desenhados, as fontes são substituídas pela Helvetica e textos em escritas que não sejam latinas ainda não podem ser convertidos. Salve arquivos .xls antigos como XLSX antes.
+	The source XLSX will not be changed.	O XLSX original não será alterado.
+	Choose a .xlsx file. Save older .xls files as XLSX first.	Escolha um arquivo .xlsx. Salve arquivos .xls antigos como XLSX antes.
+	Couldn't open Excel workbook: invalid XLSX package.	Não foi possível abrir a pasta de trabalho do Excel: pacote XLSX inválido.
+	Couldn't convert Excel workbook: {e}	Não foi possível converter a pasta de trabalho do Excel: {e}
+	Couldn't convert Excel workbook: the conversion stopped unexpectedly.	Não foi possível converter a pasta de trabalho do Excel: a conversão parou inesperadamente.
+	Hidden sheets left out: {sheets}	Planilhas ocultas omitidas: {sheets}
+	Chart sheets not drawn: {sheets}	Planilhas de gráfico não desenhadas: {sheets}
+	Charts, pictures and shapes not drawn on sheets {sheets}	Gráficos, imagens e formas não desenhados nas planilhas {sheets}
+	Conditional formatting not applied on sheets {sheets}	Formatação condicional não aplicada nas planilhas {sheets}
+	Table styles not applied on sheets {sheets}	Estilos de tabela não aplicados nas planilhas {sheets}
+	Content that isn't supported yet on sheets {sheets}	Conteúdo ainda não suportado nas planilhas {sheets}
+	Page orientation	Orientação da página
+	As set in the workbook	Como definido na pasta de trabalho
+	Portrait	Retrato
+	Landscape	Paisagem
+	Excel to PDF…	Excel para PDF…
+	Excel XLSX	Pasta de trabalho do Excel (.xlsx)
+	This document contains {n} interactive form fields.	Este documento contém {n} campos de formulário interativos.
+	Hide field highlights	Ocultar realce dos campos
+	Highlight fields	Realçar campos
+	Saved {name}	{name} salvo
+	Saved, but reopening failed: {e}	Salvo, mas não foi possível reabrir: {e}
+	Convert PDF pages to high-quality JPG images.	Converta páginas PDF em imagens JPG de alta qualidade.
+	Each PDF page becomes a JPG image. Choose the resolution, quality, and pages to convert.	Cada página do PDF se torna uma imagem JPG. Escolha a resolução, a qualidade e as páginas a converter.
+	Convert to JPG	Converter para JPG
+	JPG images ready	Imagens JPG prontas
+	{n} JPG images · {size}	{n} imagens JPG · {size}
+	1 JPG image · {size}	1 imagem JPG · {size}
+	Save JPG images	Salvar imagens JPG
+	Saved {n} JPG images to {path}	{n} imagens JPG salvas em {path}
+	Saved {n} JPG images	{n} imagens JPG salvas
+	Pages from	Páginas de
+	to	até
+	Subset	Subconjunto
+	All pages in range	Todas as páginas do intervalo
+	Even pages only	Somente páginas pares
+	Odd pages only	Somente páginas ímpares
+	Resolution	Resolução
+	Quality	Qualidade
+	{dpi} pixels/inch	{dpi} pixels/polegada
+	Image to PDF	Imagem para PDF
+	Convert PNG, JPG, TIFF, GIF, BMP and more to PDF. Add several images and set their order.	Converta PNG, JPG, TIFF, GIF, BMP e outros formatos para PDF. Adicione várias imagens e defina a ordem.
+	Add images in any order. Each image becomes one page in the PDF.	Adicione imagens em qualquer ordem. Cada imagem se torna uma página no PDF.
+	Supported formats: PNG, JPG, TIFF, GIF, BMP, JPEG 2000	Formatos suportados: PNG, JPG, TIFF, GIF, BMP, JPEG 2000
+	Add images…	Adicionar imagens…
+	Size	Tamanho
+	Page size	Tamanho de página
+	Use image resolution	Usar resolução da imagem
+	72 DPI (one point per pixel)	72 DPI (um ponto por pixel)
+	Custom DPI	DPI personalizado
+	Converted images to PDF	Imagens convertidas em PDF
+	Add at least one image	Adicione pelo menos uma imagem
+	Images	Imagens
+	Bottom center	Inferior central
+	Bottom left	Inferior esquerdo
+	Bottom right	Inferior direito
+	Certificate (.pfx, .p12)	Certificado (.pfx, .p12)
+	Certificate password:	Senha do certificado:
+	Change	Alterar
+	Choose a PDF document to apply a digital or simple signature.	Escolha um documento PDF para aplicar uma assinatura digital ou simples.
+	Choose image file…	Escolher arquivo de imagem…
+	Digital Certificate (.pfx / .p12)	Certificado Digital (.pfx / .p12)
+	Digital certificate signature	Assinatura de certificado digital
+	Draw a signature first.	Desenhe uma assinatura primeiro.
+	Draw your signature below:	Desenhe sua assinatura abaixo:
+	First page	Primeira página
+	Include signature date stamp	Incluir carimbo de data na assinatura
+	Invisible	Invisível
+	Last page	Última página
+	Location (optional):	Localidade (opcional):
+	Lock document after signing (prevent future changes)	Bloquear documento após assinar (impedir alterações futuras)
+	No document to sign.	Nenhum documento para assinar.
+	Page:	Página:
+	Placement and page	Posição e página
+	Position:	Posição:
+	Reason (optional):	Razão (opcional):
+	Select a PDF to sign	Selecione um PDF para assinar
+	Select a digital certificate file (.p12/.pfx).	Selecione um arquivo de certificado digital (.p12/.pfx).
+	Select certificate file…	Selecionar arquivo de certificado…
+	Sign and save PDF	Assinar e salvar PDF
+	Signature type	Tipo de assinatura
+	Simple signature (drawn or typed)	Assinatura simples (desenhada ou digitada)
+	Specific page:	Página específica:
+	The password is incorrect.	A senha está incorreta.
+	Top right	Superior direito
+	Type a name for the signature.	Digite um nome para a assinatura.
+	Type your name:	Digite seu nome:
+	Upload an image first.	Carregue uma imagem primeiro.
+	Upload signature image (PNG, JPG):	Carregar imagem de assinatura (PNG, JPG):
+	e.g. City, Country	ex: Cidade, País
+	e.g. I approve this document	ex: Eu aprovo este documento
+	or choose existing:	ou escolha um existente:
+	Appear behind page	Aparecer atrás do conteúdo
+	Appear on top of page	Aparecer sobre o conteúdo
+	Appearance and position	Aparência e posicionamento
+	Apply watermark and save PDF	Aplicar marca d'água e salvar PDF
+	Black	Preto
+	Blue	Azul
+	Choose a PDF document to apply a text or image watermark.	Escolha um documento PDF para aplicar uma marca d'água de texto ou imagem.
+	Color:	Cor:
+	Fit to page	Ajustar à página (diagonal)
+	Font size:	Tamanho da fonte:
+	Gray	Cinza
+	Horizontal	Horizontal (0°)
+	IMAGE	Imagem
+	Image watermark	Marca d'água de imagem
+	Layer:	Camada:
+	No document to watermark.	Nenhum documento para aplicar marca d'água.
+	Opacity:	Opacidade:
+	Page Range Options	Opções de intervalo de páginas
+	Presets:	Predefinições:
+	Preview	Visualização
+	Red	Vermelho
+	Remove	Remover
+	Rotation:	Rotação:
+	Scale relative to target page:	Escala em relação à página:
+	Select a PDF to add watermark	Selecionar um PDF para marca d'água
+	Select at least one page.	Selecione ao menos uma página.
+	Text watermark	Marca d'água de texto
+	Type a text for the watermark.	Digite o texto da marca d'água.
+	Upload watermark image (PNG, JPG):	Enviar imagem de marca d'água (PNG, JPG):
+	Watermark type	Tipo de marca d'água
+	180° (Flip)	180° (Inverter)
+	Choose a PDF document to rotate pages.	Escolha um documento PDF para girar as páginas.
+	Clockwise 90° (Right)	90° Horário (Direita)
+	Counterclockwise 90° (Left)	90° Anti-horário (Esquerda)
+	First page only	Primeira página apenas
+	Last page only	Última página apenas
+	No document to rotate.	Nenhum documento para girar.
+	Orientation:	Orientação:
+	Page range	Intervalo de páginas
+	Parity:	Paridade:
+	Rotate and save PDF	Girar e salvar PDF
+	Rotate left	Girar à esquerda
+	Rotate right	Girar à direita
+	Rotation direction	Direção da rotação
+	Select a PDF to rotate	Selecione um PDF para girar
+	Article	Artigo
+	Base font size:	Tamanho da fonte base:
+	Convert and save PDF	Converter e salvar PDF
+	Convert web pages, HTML files, or code into beautiful vector PDF documents.	Converta páginas da web, arquivos HTML ou código em belos documentos PDF vetoriais.
+	Document Header	Cabeçalho do documento
+	Fetch	Carregar
+	HTML Code	Código HTML
+	HTML Document	Documento HTML
+	HTML Editor	Editor HTML
+	HTML File	Arquivo HTML
+	HTML content is empty.	O conteúdo HTML está vazio.
+	Headers and footers:	Cabeçalhos e rodapés:
+	Invoice	Fatura
+	Large (13 pt)	Grande (13 pt)
+	Local HTML Document	Documento HTML local
+	Margins:	Margens:
+	Narrow (10mm)	Estreita (10mm)
+	None (5mm)	Sem margens (5mm)
+	Normal (11 pt)	Normal (11 pt)
+	Open in KarnoxPDF	Abrir no KarnoxPDF
+	Page Layout & Format	Layout e formato de página
+	Page Numbers	Números de página
+	Paper format:	Formato do papel:
+	Please enter a valid URL.	Digite um URL válido.
+	Select an HTML file (.html, .htm)	Selecione um arquivo HTML (.html, .htm)
+	Small (9 pt)	Pequeno (9 pt)
+	Standard (20mm)	Padrão (20mm)
+	Templates:	Modelos:
+	Type or paste a web address to fetch and convert into PDF.	Digite ou cole um endereço web para carregar e converter em PDF.
+	Web Page Address	Endereço da página web
+	Web URL	URL da Web
+	Wide (30mm)	Ampla (30mm)
+
+	100% Standard ISO PDF	PDF 100% padrão ISO
+	Add industry-standard AES-256 encryption and configure open and permissions passwords for your PDF.	Adicione criptografia AES-256 de padrão industrial e configure senhas de abertura e permissões para o seu PDF.
+	AES-128 (Acrobat 7+)	AES-128 (Acrobat 7+)
+	AES-256 (Recommended)	AES-256 (Recomendado)
+	All	Todas
+	Allowed	Permitido
+	Allows printing in maximum resolution on all printers.	Permite impressão na resolução máxima em todas as impressoras.
+	Awaiting password entry	Aguardando digitação da senha
+	Blocked	Bloqueado
+	Changes Allowed	Modificações permitidas
+	Choose a password-protected PDF to decrypt and strip all security restrictions (printing, editing, copying).	Escolha um PDF protegido por senha para descriptografar e remover todas as restrições de segurança (impressão, edição, cópia).
+	Clean, standards-compliant PDF file readable by any device.	Arquivo PDF limpo e em conformidade com padrões, legível por qualquer dispositivo.
+	Clear	Limpar
+	Commenting & Forms	Anotações e formulários
+	Confirm password	Confirmar senha
+	Confirm permissions password	Confirmar senha de permissões
+	Content Access	Acesso ao conteúdo
+	Document Password	Senha do documento
+	Enable screen readers	Ativar leitores de tela
+	Enable text & image copying	Ativar cópia de texto e imagem
+	Enables selecting, copying text, and extracting images.	Permite selecionar, copiar texto e extrair imagens.
+	Encrypt your PDF document with a password to prevent unauthorized access and modification.	Criptografe seu documento PDF com senha para impedir acesso e modificações não autorizadas.
+	Encrypted with	Criptografado com
+	Encryption Algorithm	Algoritmo de criptografia
+	Enter password	Digite a senha
+	Enter permissions password	Digite a senha de permissões
+	Enter the open password or owner/permissions password to unlock:	Digite a senha de abertura ou de proprietário/permissões para desbloquear:
+	File unlocked and saved successfully!	Arquivo desbloqueado e salvo com sucesso!
+	Full permission to edit, sign, comment, and fill forms.	Permissão total para editar, assinar, comentar e preencher formulários.
+	High Resolution	Alta resolução
+	Incorrect password. Please verify and try again.	Senha incorreta. Verifique e tente novamente.
+	Local and confidential: your file is encrypted entirely on your machine.	Local e confidencial: seu arquivo é criptografado inteiramente na sua máquina.
+	Local and confidential: your file is processed entirely on your machine.	Local e confidencial: seu arquivo é processado inteiramente na sua máquina.
+	Low Resolution	Baixa resolução
+	No document loaded.	Nenhum documento carregado.
+	No password required!	Nenhuma senha necessária!
+	No restrictions	Sem restrições
+	None	Nenhuma
+	None (Blocked)	Nenhuma (Bloqueado)
+	Not Protected	Não protegido
+	Not required (public reading)	Não exigida (leitura pública)
+	Open Password:	Senha de abertura:
+	Page Operations	Operações de página
+	Password configured	Senha configurada
+	Password Protected	Protegido por senha
+	Password to open document	Senha para abrir o documento
+	Passwords do not match	As senhas não coincidem
+	Passwords match	As senhas coincidem
+	Permissions & Restrictions	Permissões e restrições
+	Permissions Password (Owner)	Senha de permissões (Proprietário)
+	Permissions:	Permissões:
+	Please enable an open password or permissions password.	Ative uma senha de abertura ou senha de permissões.
+	Printing Allowed	Impressão permitida
+	Printing:	Impressão:
+	Protect and save PDF	Proteger e salvar PDF
+	Protection Modes	Modos de proteção
+	Protection Overview	Visão geral da proteção
+	RC4-128 (Legacy)	RC4-128 (Legado)
+	Remove Open Password	Remover senha de abertura
+	Remove password protection and permission restrictions from your PDF document.	Remova a proteção por senha e as restrições de permissões do seu documento PDF.
+	Require password to open	Exigir senha para abrir
+	Required (awaiting entry)	Obrigatória (aguardando entrada)
+	Required to change security or lift restrictions:	Necessária para alterar segurança ou remover restrições:
+	Restore Content Copying	Restaurar cópia de conteúdo
+	Restore Form & Editing	Restaurar formulários e edição
+	Restore Printing Rights	Restaurar direitos de impressão
+	Restrict editing & permissions	Restringir edição e permissões
+	Restrictions (No password)	Restrições (Sem senha)
+	Restrictions active	Restrições ativas
+	Re-type password	Digite a senha novamente
+	Re-type permissions password	Digite a senha de permissões novamente
+	Security Removal Summary	Resumo da remoção de segurança
+	Select PDF file	Selecionar arquivo PDF
+	Select PDF to protect	Selecionar PDF para proteger
+	Select PDF to unlock	Selecionar PDF para desbloquear
+	Strength:	Força:
+	Text/Image Copying:	Cópia de texto/imagem:
+	The decrypted PDF will open freely in any viewer without asking for a password.	O PDF descriptografado abrirá livremente em qualquer visualizador sem solicitar senha.
+	The open password and permissions password must be different.	A senha de abertura e a senha de permissões devem ser diferentes.
+	The open passwords do not match.	As senhas de abertura não coincidem.
+	The permissions passwords do not match.	As senhas de permissões não coincidem.
+	This document can be decrypted and have all its restrictions removed immediately without entering a password.	Este documento pode ser descriptografado e ter todas as suas restrições removidas imediatamente sem digitar senha.
+	This document is protected and requires a password to unlock.	Este documento está protegido e requer uma senha para desbloquear.
+	Toggle password visibility	Alternar visibilidade da senha
+	Type a password to open the document.	Digite uma senha para abrir o documento.
+	Type a permissions password.	Digite uma senha de permissões.
+	Unknown	Desconhecido
+	Unlock and save PDF	Desbloquear e salvar PDF
+	Strong	Forte
+	Medium	Média
+	Weak	Fraca
+	Repair PDF	Reparar PDF
+	Repair PDF…	Reparar PDF…
+	Recover damaged or corrupted PDF files.	Recuperar arquivos PDF corrompidos ou danificados.
+	Recover damaged or corrupted PDF files. Rebuild cross-references, restore page trees, and salvage content.	Recupere arquivos PDF danificados ou corrompidos. Reconstrua tabelas de referências cruzadas, restaure árvores de páginas e resgate conteúdo.
+	Selected PDF	PDF selecionado
+	Password (if protected):	Senha (se protegido):
+	Leave empty if unencrypted	Deixe em branco se não estiver criptografado
+	The original file will remain untouched.	O arquivo original permanecerá intacto.
+	PDF successfully repaired!	PDF reparado com sucesso!
+	Structural damages were detected and reconstructed.	Danos estruturais foram detectados e reconstruídos.
+	PDF structure verified	Estrutura do PDF verificada
+	The document is valid and was cleanly re-indexed.	O documento é válido e foi reindexado de forma limpa.
+	Output size	Tamanho de saída
+	Repair details	Detalhes da reparação
+	Repair another file	Reparar outro arquivo
+	Save Repaired PDF	Salvar PDF reparado
+	Select a damaged PDF to repair	Selecione um PDF corrompido para reparar
+	Files with broken cross-reference tables, damaged headers, or corrupted page trees can be recovered.	Arquivos com tabelas de referência cruzada corrompidas, cabeçalhos danificados ou árvores de páginas truncadas podem ser recuperados.
+	Xref rebuilding	Reconstrução de Xref
+	Page tree recovery	Recuperação da árvore de páginas
+	Clean rewrite	Regravação limpa
+	Repaired PDF saved successfully!	PDF reparado salvo com sucesso!
+	Objects	Objetos
+	verified cross-reference table and page structure (no errors found)	Tabela de referências cruzadas e estrutura de páginas verificadas (nenhum erro encontrado)
+	restored document catalog reference in trailer	Referência do catálogo do documento restaurada no trailer
+	reconstructed missing Pages tree root in catalog	Raiz da árvore de páginas ausente reconstruída no catálogo
+	restored {n} orphaned pages into the document page tree	{n} páginas órfãs restauradas na árvore de páginas do documento
+	corrected page count in tree ({n} pages)	Contagem de páginas corrigida na árvore ({n} páginas)
+	removed broken linearization dictionary	Dicionário de linearização corrompido removido
+	the %PDF- header is missing; reading the file as PDF 1.4	Cabeçalho %PDF- ausente; lendo o arquivo como PDF 1.4
+	cross-reference data unreadable; rebuilding from object headers	Dados de referências cruzadas ilegíveis; reconstruindo a partir dos cabeçalhos dos objetos
+	cross-reference data unreadable ({e}); rebuilding from object headers	Dados de referências cruzadas ilegíveis ({e}); reconstruindo a partir dos cabeçalhos dos objetos
+	cross-reference data does not lead to a valid catalog; rebuilding from object headers	Dados de referências cruzadas não levam a um catálogo válido; reconstruindo a partir dos cabeçalhos dos objetos
+	the trailer names an /Encrypt dictionary that does not exist; reading the file as unencrypted	O trailer referencia um dicionário /Encrypt inexistente; lendo o arquivo como não criptografado
+	rebuilt cross-reference index from {n} object headers	Índice de referências cruzadas reconstruído a partir de {n} cabeçalhos de objetos
+	synthesized missing catalog and pages root for {n} recovered pages	Catálogo e raiz de páginas sintetizados para {n} páginas recuperadas
+	Add page numbers to PDF documents. Choose position, formatting, and typography.	Adicione números de página em documentos PDF. Escolha posição, formatação e tipografia.
+	Add page numbers…	Adicionar números de página…
+	Select a PDF to add page numbers	Selecione um PDF para adicionar números de página
+	Insert customized page numbering into headers or footers with full control over style and position.	Insira numeração de páginas personalizada em cabeçalhos ou rodapés com controle total sobre estilo e posição.
+	Position	Posição
+	Top Left	Superior esquerdo
+	Top Center	Superior central
+	Top Right	Superior direito
+	Bottom Left	Inferior esquerdo
+	Bottom Center	Inferior central
+	Bottom Right	Inferior direito
+	Format	Formato
+	Number only (1, 2, 3...)	Apenas número (1, 2, 3...)
+	Page {n}	Página {n}
+	Page {n} of {total}	Página {n} de {total}
+	{n} / {total}	{n} / {total}
+	Page <<1>>	Página <<1>>
+	Page <<1>> of <<n>>	Página <<1>> de <<n>>
+	Custom format:	Formato personalizado:
+	Use <<1>> for page number, <<n>> for total count	Use <<1>> para número da página e <<n>> para total de páginas
+	Page range:	Intervalo de páginas:
+	Skip first page (cover)	Ignorar primeira página (capa)
+	Style & Typography	Estilo e tipografia
+	Margin (distance from edge):	Margem (distância da borda):
+	Start numbering at:	Iniciar numeração em:
+	PAGE PREVIEW	PRÉ-VISUALIZAÇÃO DA PÁGINA
+	Select another file	Selecionar outro arquivo
+	Save PDF with Page Numbers	Salvar PDF com números de página
+	Page numbers added successfully!	Números de página adicionados com sucesso!
+	6 positions	6 posições
+	Custom formatting	Formatação personalizada
+	Page range selection	Seleção de intervalo de páginas
+	Type a format template first.	Digite um modelo de formatação primeiro.
+	Document has no pages.	O documento não contém páginas.
+	100% Local & Private	100% local e privado
+	Cannot delete all pages	Não é possível excluir todas as páginas
+	Cannot delete all pages. The PDF must keep at least 1 page.	Não é possível excluir todas as páginas. O PDF deve manter ao menos 1 página.
+	Choose a document to review and delete specific pages.	Escolha um documento para revisar e excluir páginas específicas.
+	Click pages to mark for deletion	Clique nas páginas para marcar para exclusão
+	Fast & lossless	Rápido e sem perdas
+	Invert selection	Inverter seleção
+	Keep	Manter
+	No document to process.	Nenhum documento para processar.
+	No pages selected	Nenhuma página selecionada
+	Or type page numbers:	Ou digite os números das páginas:
+	Page out of range:	Página fora do intervalo:
+	Pages deleted and PDF saved successfully!	Páginas excluídas e PDF salvo com sucesso!
+	Pages to delete	Páginas para excluir
+	Remove unwanted pages from PDF documents and generate a new file.	Remova páginas indesejadas de documentos PDF e gere um novo arquivo.
+	Remove unwanted pages from your PDF document and save a new file.	Remova páginas indesejadas do seu documento PDF e salve um novo arquivo.
+	Save PDF without deleted pages	Salvar PDF sem as páginas excluídas
+	Select PDF File	Selecionar arquivo PDF
+	Select a PDF to delete pages	Selecione um PDF para excluir páginas
+	Select at least one page to delete.	Selecione ao menos uma página para excluir.
+	Tip: Click individual page cards or type numbers/ranges separated by commas.	Dica: Clique nas páginas para marcar/desmarcar ou digite intervalos separados por vírgula.
+	Use currently open document	Usar documento aberto atualmente
+	Visual page selection	Seleção visual de páginas
+	is not a valid number	não é um número válido
+	{n} pages to delete	{n} páginas para excluir
+	{n} remaining	{n} restantes
+	Delete Pages	Excluir páginas
+	Clear all	Desmarcar tudo
+	Even pages	Páginas pares
+	Odd pages	Páginas ímpares
+	All pages translated successfully!	Todas as páginas foram traduzidas com sucesso!
+	Auto-detect	Detecção automática
+	Bilingual side-by-side	Bilíngue lado a lado
+	Choose a document to extract text and translate into multiple languages.	Escolha um documento para extrair texto e traduzir para vários idiomas.
+	Copy translation	Copiar tradução
+	Multilingual translation	Tradução multilíngue
+	No text detected on this page.	Nenhum texto detectado nesta página.
+	Original Text	Texto original
+	Output format:	Formato de saída:
+	Reset current page	Restaurar página atual
+	Review & edit translated text	Revisar e editar texto traduzido
+	Save Translated PDF	Salvar PDF traduzido
+	Select a PDF to translate	Selecione um PDF para traduzir
+	Side-by-side bilingual mode	Modo bilíngue lado a lado
+	Translate PDF	Traduzir PDF
+	Translate PDF document text into multiple languages and generate a new PDF.	Traduza o texto de documentos PDF para vários idiomas e gere um novo PDF.
+	Translate all pages	Traduzir todas as páginas
+	Translate current page	Traduzir página atual
+	Translated PDF saved successfully!	PDF traduzido salvo com sucesso!
+	Translated Text (Editable)	Texto traduzido (editável)
+	Translated only	Apenas traduzido
+	Translation copied to clipboard.	Tradução copiada para a área de transferência.
+	translated successfully!	traduzida com sucesso!
+
+	Translating… {done} of {total} pages	Traduzindo… {done} de {total} páginas
+	{failed} of {parts} parts could not be translated ({reason}). The original text was kept for them.	{failed} de {parts} trechos não puderam ser traduzidos ({reason}). O texto original foi mantido neles.
+	Fill	Preenchimento
+	Outline	Contorno
+	Rotate Clockwise	Girar no sentido horário
+	Rotate Counterclockwise	Girar no sentido anti-horário
+	Flip Horizontal	Inverter horizontalmente
+	Flip Vertical	Inverter verticalmente
+	From:	De:
+	To:	Para:
+	Next page	Próxima página
+	Previous page	Página anterior
+	Loading the page…	Carregando a página…
+	Decrease	Diminuir
+	Increase	Aumentar
+	More tools	Mais ferramentas
+	Next	Próximo
+	Previous	Anterior
+	Open a PDF	Abrir um PDF
+	Adds invisible text over each word; the page image is not changed	Adiciona texto invisível sobre cada palavra; a imagem da página não é alterada
+	Back to all tools	Voltar para todas as ferramentas
+	Back to the document	Voltar ao documento
+	Bookmark options	Opções de marcadores
+	Close panel	Fechar painel
+	Colour	Cor
+	Current page — type a page number or label (such as iv) and press Enter	Página atual — digite um número ou rótulo de página (como iv) e pressione Enter
+	Discard this text	Descartar este texto
+	Dismiss	Dispensar
+	Done adding text	Concluir adição de texto
+	Extract pages to a new document	Extrair páginas para um novo documento
+	Filter comments	Filtrar comentários
+	Find options	Opções de localização
+	From a PDF page or an image	A partir de uma página PDF ou de uma imagem
+	Go to the page	Ir para a página
+	Go to this result	Ir para este resultado
+	Hand	Mão
+	Insert a blank page after the selection	Inserir uma página em branco após a seleção
+	Insert pages from a file…	Inserir páginas de um arquivo…
+	Line thickness	Espessura da linha
+	Locked	Bloqueado
+	Marked	Marcado
+	More	Mais
+	More options	Mais opções
+	Move earlier	Mover para antes
+	Move later	Mover para depois
+	Next figure	Próxima figura
+	Next month	Próximo mês
+	Next sheet	Próxima folha
+	Opacity	Opacidade
+	Open in a new tab	Abrir em uma nova guia
+	Open the file as it was saved then	Abrir o arquivo como estava quando foi salvo
+	Previous figure	Figura anterior
+	Previous month	Mês anterior
+	Previous sheet	Folha anterior
+	Rotate view clockwise	Girar a visualização no sentido horário
+	Save attachment…	Salvar anexo…
+	Search comments	Pesquisar comentários
+	Select	Selecionar
+	Select pages	Selecionar páginas
+	Show the accessibility report	Mostrar o relatório de acessibilidade
+	Split into files…	Dividir em arquivos…
+	Toggle fit page / fit width	Alternar ajustar página / ajustar largura
+	Try the form as people filling it in will see it	Experimente o formulário como as pessoas que o preencherão o verão
+	Zoom in	Aumentar zoom
+	Zoom out	Diminuir zoom
+	Developer	Desenvolvedor
+	E-mail	E-mail
+	Version	Versão
+	Auto portrait/landscape	Retrato/paisagem automático
+	Auto-rotate pages	Girar páginas automaticamente
+	Back side only	Somente o verso
+	Binding:	Encadernação:
+	Booklet	Livreto
+	Booklet subset:	Subconjunto do livreto:
+	Both sides	Ambos os lados
+	Collate	Agrupar cópias
+	Comments & Forms	Comentários e formulários
+	Copies:	Cópias:
+	Current page	Página atual
+	Custom scale:	Escala personalizada:
+	Cut and stack	Cortar e empilhar
+	Cut marks	Marcas de corte
+	Document	Documento
+	Document and markups	Documento e marcações
+	Document and stamps	Documento e carimbos
+	Fit	Ajustar
+	Flip on long edge	Virar pela borda longa
+	Flip on short edge	Virar pela borda curta
+	Form fields only	Somente campos de formulário
+	Front side only	Somente a frente
+	Horizontal reversed	Horizontal invertido
+	Left	Esquerda
+	More options:	Mais opções:
+	Multiple	Várias por folha
+	No sheets	Nenhuma folha
+	Off	Desativado
+	Overlap:	Sobreposição:
+	Page Sizing & Handling	Tamanho e manuseio de páginas
+	Page order:	Ordem das páginas:
+	Pages per sheet:	Páginas por folha:
+	Pages to Print	Páginas para imprimir
+	Paper:	Papel:
+	Poster	Pôster
+	Print in grayscale	Imprimir em escala de cinza
+	Print page border	Imprimir borda da página
+	Printer:	Impressora:
+	Reverse pages	Inverter páginas
+	Right	Direita
+	Save as PDF	Salvar como PDF
+	Sent to {printer}	Enviado para {printer}
+	Sent to {printer}: {msg}	Enviado para {printer}: {msg}
+	Sheet {s} of {n}	Folha {s} de {n}
+	Shrink oversized pages	Reduzir páginas grandes demais
+	Tile scale:	Escala dos blocos:
+	Two-sided:	Frente e verso:
+	Vertical	Vertical
+	Vertical reversed	Vertical invertido
+	{name} (default)	{name} (padrão)
+	Print single-sided. Keep the sheets in order, cut at the marks, then stack the piles left to right, top to bottom.	Imprima em um só lado. Mantenha as folhas em ordem, corte nas marcas e empilhe as pilhas da esquerda para a direita, de cima para baixo.
+	US Letter	Carta (EUA)
+	US Legal	Ofício (EUA)
+	Tabloid	Tabloide
+	PDF tools	Ferramentas PDF
+	Edit, convert, organize and work with PDFs quickly, simply and securely.	Edite, converta, organize e trabalhe com PDFs de forma rápida, simples e segura.
+	Recent files	Arquivos recentes
+	Everything you need to work with PDFs in one place.	Tudo que você precisa para trabalhar com PDF em um só lugar.
+	Grid view	Visualização em grade
+	List view	Visualização em lista
+	Open files in progress	Recursos em aberto
+	There are open files or active tools. Do you really want to close KarnoxPDF?	Existem arquivos ou recursos abertos. Deseja realmente fechar o KarnoxPDF?
+	Close KarnoxPDF	Fechar o KarnoxPDF
+	item open	item aberto
+	items open	itens abertos
+	Notification	Notificação
+	Go to open files or active tools	Ir para os arquivos ou recursos abertos
+	Tools	Ferramentas
+	No open files or active tools	Nenhum arquivo ou recurso aberto
+	Navigation	Navegação
